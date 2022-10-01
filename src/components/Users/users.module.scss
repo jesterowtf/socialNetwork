@@ -1,0 +1,53 @@
+.users {
+    font-size: 14px;
+    background-color: var(--usersBack);
+    border-right: 4px solid var(--mainColor);
+    padding: 10px 0 40px;
+    border-radius: 20px;
+}
+
+.users__title {
+    color: var(--mainText);
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    background-color: var(--titleColor);
+}
+
+
+.pageButtons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pageCurrent {
+    padding: 5px;
+    border: 1px solid #000;
+    cursor: pointer;
+    color: #000;
+    background-color: rgb(11, 143, 250);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selectBox {
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.select {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+

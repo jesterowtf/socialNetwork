@@ -1,0 +1,56 @@
+.header {
+    background-color: var(--mainColor);
+    grid-area: h;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+
+}
+.svgAnimate {
+    position: absolute;
+    top: -246px;
+    left: 0;
+    z-index: -1;
+    width: 1200px;
+    height: 336px;
+}
+
+.logoDiv {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 30px;
+    width: 90px;
+    height: auto;
+}
+
+.sitename {
+    font-size: 24px;
+    color: var(--headerLogoText);
+    margin-left: 20px;
+}
+
+.login {
+    margin-right: 40px;
+    font-size: 18px;
+    color: var(--headerLoginText);
+    font-family: sans-serif;
+}
+
+.login a {
+    color: var(--headerLoginText);
+}
+
+.rightSide {
+    display: flex;
+    align-items: center;
+}
+
+a.loginButton {
+    text-decoration: none;
+    color: var(--titleColor);
+}

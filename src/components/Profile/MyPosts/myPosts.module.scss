@@ -1,0 +1,22 @@
+.newPost {
+    padding: 20px 0;
+    background-color: var(--secondColor);
+    border-radius: 20px;
+}
+
+.newPost__title {
+    color: var(--mainText);
+    font-size: 21px;
+    margin-left: 30px;
+}
+
+.myPosts {
+    font-size: 16px;
+    color: var(--secondText);
+    padding: 20px;
+}
+
+.myPosts__title {
+    color: var(--mainText);
+    font-size: 21px;
+}

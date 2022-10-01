@@ -1,0 +1,161 @@
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html[data-theme="dark"] {
+  --mainColor: rgb(25, 25, 25);
+  --secondColor: rgb(50, 50, 50);
+  --anotherColor: rgb(36, 36, 36);
+  --anotherLink: rgb(36, 36, 36);
+
+  --titleColor: #f87306;
+  --mainText: #fff;
+  --secondText: #8e8e8e;
+  --thirdText: #b7b4b4;
+  --statusText: #8e8e8e;
+  --headerLogoText: #fff;
+  --headerLoginText: #fff;
+
+  --profileBack: transparent;
+  --usersBack: transparent;
+  --dialogsBack: transparent;
+
+  --inputFormBacColor: rgb(32, 32, 32);
+  --inputFormBordColor: rgb(72, 72, 72);
+  --inputFormButtonTextColor: rgb(156, 156, 156);
+  --inputFormTextColor: rgb(196, 196, 196);
+
+  --usersBorderColor: #8e8e8e;
+  --likesBackg: rgb(35, 33, 33);
+  --postBackColor: rgb(35, 33, 33);
+  --postTextColor: #fff;
+
+  --inputMessageColorText: #fff;
+  --inputMessageColorFon: #575758;
+
+  --usersListBackColor: rgb(32, 32, 32);
+  --usersListEvenColor: rgb(25, 25, 25);
+  --usersListTextColor: rgb(196, 196, 196);
+
+  --usersFollowTextColor: #fff;
+  --usersFollowTextColorHover: rgb(196, 196, 196);
+  --usersFollowBackgrColor: linear-gradient(to right, #00c6ff 0%, #0072ff  51%, #00c6ff  100%);
+  --usersFollowBackgrColorHover: rgb(196, 196, 196);
+
+  --usersUnfollowTextColor: #fff;
+  --usersUnfollowTextColorHover: rgb(196, 196, 196);
+  --usersUnfollowBackgrColor:  linear-gradient(to right, #fe8c00 0%, #f83600  51%, #fe8c00  100%);
+  --usersUnfollowBackgrColorHover: rgb(196, 196, 196);
+
+  --usersGoToTextColor: #fff;
+  --usersGoToTextColorHover: rgb(196, 196, 196);
+  --usersGoToBackgrColor: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
+  --usersGoToBackgrColorHover: rgb(196, 196, 196);
+
+  --buttonSend: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
+
+  --themeButtonBg: rgb(32, 32, 32);
+  --themeButtonText: rgb(196, 196, 196);
+  --themeButtonHoverBG: rgb(56, 54, 54);
+  --themeButtonHoverText: rgb(255, 255, 255);
+
+  --sidebarLinkActive: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  --sidebarLinkTextActive:  #fff;
+  --sidebarLinkHover: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  --sidebarLinkText:  #fff;
+  --sidebarLinkTextHover:  #fff;
+
+  --LthemeButtonBg: rgb(115, 116, 116);
+  --LthemeButtonText: rgb(255, 255, 255);
+  --LthemeButtonHoverBG: rgb(56, 54, 54);
+  --LthemeButtonHoverText: rgb(185, 185, 185);
+
+  --bgImage: url('https://images.wallpaperscraft.ru/image/single/doski_dereviannyj_poverhnost_185510_1920x1080.jpg');
+  --bgImage2: url('https://images.wallpaperscraft.ru/image/single/stena_kirpichi_tekstura_ten_chb_44987_1920x1080.jpg');
+  --bgImage3: url('https://images.wallpaperscraft.ru/image/single/set_polosy_linii_tekstura_poverhnost_temnyy_50346_1920x1080.jpg');
+  --bgImage4: url('https://images.wallpaperscraft.ru/image/single/kub_temnyj_tekstura_formy_119956_1920x1080.jpg');
+
+}
+
+
+html[data-theme="light"] {
+  --mainColor: rgb(153 3 255);
+  --secondColor: rgb(245, 243, 243);
+  --anotherColor: rgb(203 203 203 / 50%);
+  --anotherLink: rgb(179, 119, 240);
+
+  --titleColor: #dedede;
+  --link: #919191;
+  --mainText: #1c1c1c;
+  --secondText: #2f2d2d;
+  --thirdText: #1f1d1d;
+  --statusText: #000000;
+  --headerLogoText: #fff;
+  --headerLoginText: #fff;
+
+  --profileBack: #fff;
+  --usersBack: #fff;
+  --dialogsBack: #fff;
+
+  --inputFormBacColor: rgb(212, 212, 212);
+  --inputFormBacColorHover: rgb(212, 212, 212);
+  --inputFormBordColor: rgb(110, 110, 110);
+  --inputFormButtonTextColor: rgb(172, 230, 48);
+  --inputFormTextColor: rgb(29, 29, 29);
+
+  --usersBorderColor: #8e8e8e;
+  --likesBackg: rgb(35, 33, 33);
+  --postBackColor: rgb(240, 234, 234);
+  --postTextColor: #000000;
+
+  --sidebarLinkActive:  linear-gradient(to right, #6a3093 0%, #a044ff  51%, #6a3093  100%);
+  --sidebarLinkTextActive:  #fff;
+  --sidebarLinkHover:  linear-gradient(to right, #6a3093 0%, #a044ff  51%, #6a3093  100%);
+  --sidebarLinkText:  #000;
+  --sidebarLinkTextHover:  #fff;
+
+  --inputMessageColorText: #fff;
+  --inputMessageColorFon: #575758;
+
+
+
+  --usersListBackColor: rgb(239 239 239);
+  --usersListEvenColor: rgb(255, 255, 255);
+  --usersListTextColor: rgb(40, 40, 40);
+
+
+  --usersFollowTextColor: #fff;
+  --usersFollowTextColorHover: rgb(196, 196, 196);
+  --usersFollowBackgrColor:linear-gradient(to right, #56ab2f 0%, #a8e063  51%, #56ab2f  100%);
+  /*--usersFollowBackgrColor: linear-gradient(to right, #00c6ff 0%, #0072ff  51%, #00c6ff  100%);*/
+  --usersFollowBackgrColorHover: rgb(196, 196, 196);
+
+  --usersUnfollowTextColor: #fff;
+  --usersUnfollowTextColorHover: rgb(196, 196, 196);
+  --usersUnfollowBackgrColor:  linear-gradient(to right, #fe8c00 0%, #f83600  51%, #fe8c00  100%);
+  --usersUnfollowBackgrColorHover: rgb(196, 196, 196);
+
+  --usersGoToTextColor: #fff;
+  --usersGoToTextColorHover: rgb(196, 196, 196);
+  --usersGoToBackgrColor: linear-gradient(to right, #6a3093 0%, #a044ff  51%, #6a3093  100%);
+  --usersGoToBackgrColorHover: rgb(196, 196, 196);
+
+  --buttonSend: linear-gradient(to right, #6a3093 0%, #a044ff  51%, #6a3093  100%);
+
+  --LthemeButtonBg: rgb(136, 46, 241);
+  --LthemeButtonText: rgb(255, 255, 255);
+  --LthemeButtonHoverBG: rgb(164, 98, 235);
+  --LthemeButtonHoverText: rgb(255, 255, 255);
+
+  --bgImage: url('https://images.wallpaperscraft.ru/image/single/doski_dereviannyj_poverhnost_185510_1920x1080.jpg');
+  --bgImage2: url('https://images.wallpaperscraft.ru/image/single/stena_kirpichi_tekstura_ten_chb_44987_1920x1080.jpg');
+  --bgImage3: url('https://images.wallpaperscraft.ru/image/single/set_polosy_linii_tekstura_poverhnost_temnyy_50346_1920x1080.jpg');
+  --bgImage4: url('https://images.wallpaperscraft.ru/image/single/pyatna_nebo_linii_85072_1920x1080.jpg');
+}
+

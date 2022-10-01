@@ -1,0 +1,29 @@
+.feed {
+    font-size: 14px;
+    background-color: var(--usersBack);
+    border-right: 4px solid var(--mainColor);
+    padding: 10px 0 40px;
+    border-radius: 20px;
+}
+
+.feed__title {
+    color: var(--mainText);
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    background-color: var(--titleColor);
+}
+
+.filter__friendsModeBox {
+
+    input {
+        width: 20px;
+        height: 20px;
+        margin-right: 20px;
+    }
+
+    span {
+        font-size: 16px;
+        color: var(--mainText)
+    }
+}

@@ -1,0 +1,56 @@
+.toggleWidget {
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.toggleImage {
+  width: 50px;
+  height: 50px;
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.toggleTitle {
+  color: var(--thirdText);
+  margin-bottom: 10px;
+}
+
+.buttonDark {
+  width: 70px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: var(--themeButtonBg);
+  color: var(--themeButtonText);
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--themeButtonHoverBG);
+    color: var(--themeButtonHoverText);
+  }
+}
+
+.buttonLight {
+  width: 70px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: var(--LthemeButtonBg);
+  color: var(--LthemeButtonText);
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--LthemeButtonHoverBG);
+    color: var(--LthemeButtonHoverText);
+  }
+}
