@@ -31,12 +31,6 @@ const Feed = (props) => {
     setFriendsPostsMode(prevState => !prevState)
   }
 
-
-
-
-
-
-
   return (
     <>
       {isFetching ? <Preloader /> :
