@@ -1,0 +1,135 @@
+.posts__Item {
+    background-color: var(--anotherColor);
+    border-radius: 10px;
+    padding: 15px 15px 40px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.post__box {
+    display: flex;
+    overflow: hidden;
+}
+
+.post__ava {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.post__text {
+    flex: 0 0 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.post__avaImg {
+    cursor: pointer;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.post__buttons {
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--secondColor);
+    border-radius: 30px;
+    padding: 5px 15px 5px 15px;
+    color: var(--secondText);
+    background: var(--anotherColor);
+}
+
+.post__data {
+    position: absolute;
+    right: 70px;
+    bottom: 8px;
+    margin-right: 20px;
+}
+
+.bottomStroke {
+    display: flex;
+}
+
+.likes {
+    width: 30px;
+    margin-right: 10px;
+    height: auto;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.likes:hover {
+    transform: translateX(-5px)
+}
+
+.postTitleBox {
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background-color: var(--inputFormBacColor);
+    padding: 10px;
+
+    .postTitle {
+        color: var(--mainText);
+        font-size: 18px;
+    }
+}
+
+.postTextBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.postImageBox {
+    flex: 0 0 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.postImage {
+    border-radius: 20px;
+    max-width: 800px;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.postText {
+    border-radius: 20px;
+    background-color: var(--inputFormBacColor);
+    padding: 15px;
+    line-height: 20px;
+    max-width: 800px;
+    white-space: pre-wrap;
+}
+
+.postSetting {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+
+
+    .deleteButton {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+
+        .deleteButton__img {
+            width: 30px;
+            height: 30px;
+
+        }
+    }
+}

@@ -1,0 +1,42 @@
+
+.dialogs {
+    background-color: var(--mainColor);
+    border-right: 2px solid var(--mainColor);
+    padding: 10px 0;
+    height: 98%;
+    border-radius: 20px;
+}
+
+.dialogs__title {
+    color: var(--mainText);
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    background-color: var(--titleColor);
+}
+
+.dialogsBox {
+    height: 100%;
+    display: flex;
+    border-top: 1px solid var(--inputFormBacColor);
+}
+
+.dialogsList {
+    flex: 30% 0 0;
+    border-right: 1px solid var(--inputFormBacColor);
+}
+
+.dialogsItems {
+    flex: 70% 0 0;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--anotherColor);
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+

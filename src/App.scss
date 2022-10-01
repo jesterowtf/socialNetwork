@@ -1,0 +1,38 @@
+body {
+  margin: 0 auto;
+  padding: 40px;
+  max-width: 1200px;
+  /* background-image: url('https://catherineasquithgallery.com/uploads/posts/2021-02/1613273811_21-p-sinii-fon-s-blikami-26.jpg'); */
+  /* background-image: url('https://images3.alphacoders.com/167/thumb-1920-167859.jpg'); */
+  /* background-image: url('https://catherineasquithgallery.com/uploads/posts/2021-02/1612451650_8-p-serie-soti-fon-13.jpg'); */
+  /* background-image: url('https://phonoteka.org/uploads/posts/2021-04/1619387744_12-phonoteka_org-p-fon-dlya-interfeisa-18.jpg'); */
+  /* background-image: url('https://baazarproductions.com/wp-content/uploads/2018/02/menubackground6.jpg'); */
+  /*background-image: url('https://images.wallpaperscraft.ru/image/single/kvadraty_formy_svet_85528_1920x1080.jpg');*/
+  background-image: var(--bgImage4);
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Comfortaa', cursive;
+
+}
+
+.App {
+  position: relative;
+  margin-top: 30px;
+  display: grid;
+  gap: 2px;
+  background-color: var(--mainColor);
+  border-radius: 20px 20px 20px 20px;
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-columns: 250px 1fr;
+  grid-template-areas: "h h"
+                 "s c"
+                 "f f" ;
+  color: var(--mainText)
+}
+
+.content {
+  grid-area: c;
+  border-radius: 20px;
+  min-height: 700px;
+
+}

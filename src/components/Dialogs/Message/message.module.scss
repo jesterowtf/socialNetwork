@@ -1,0 +1,12 @@
+
+.message {
+    align-self: flex-start;
+    padding: 10px;
+    background-color: var(--inputMessageColorFon);
+    border: 1px solid  var(--secondColor);
+    border-radius: 15px;
+    margin-bottom: 12px;
+    color: var(--mainText);
+    max-width: 400px;
+    display: block;
+}
