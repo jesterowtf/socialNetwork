@@ -20,7 +20,7 @@ const Post = (props) => {
   const [deleted, setPostDeleted] = useState(false);
 
   const trueDate = createdAt?.replace(/T/, ' ').replace(/\..+/, '');
-  const postImage = `http://localhost:3005${image}`;
+  const postImage = `https://social-network-backend-lemon.vercel.app${image}`;
   const theme = localStorage.getItem('app-theme');
 
 
