@@ -47,14 +47,13 @@ const User = (props) => {
     <div className={s.user}>
       <div className={s.userLeft}>
         <div className={s.avaBox}>
-          <img src={photos != null ? photos : noavatar} alt="ava" className={s.ava}/>
+          <img src={photos != null ? `${process.env.REACT_APP_STATIC_FILES_URL}${photos}` : noavatar} alt="ava" className={s.ava}/>
         </div>
       </div>
       <div className={s.userRight}>
         <div>
           <p className={s.name}><span>{firstname} {secondName}</span></p>
           <p className={s.city}><span>{status != null ? status : 'Статус не указан'}</span></p>
-          {/* <p className={s.city}>Город: <span>Тюмень</span></p> */}
         </div>
         <div className={s.followButton}>
           {getFollow ? (

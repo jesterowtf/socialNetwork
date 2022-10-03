@@ -3,12 +3,11 @@ import {useForm} from "react-hook-form";
 import s from "./loginform.module.scss";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getAuthErrors, getAuthUserId, getIsAuth} from "../../redux/selectors/login-selectors";
+import {getAuthErrors, getIsAuth} from "../../redux/selectors/login-selectors";
 import {login, registration} from "../../redux/auth-reducer";
 
 const LoginForm = (props) => {
   const isAuth = useSelector(getIsAuth)
-  // const userId = useSelector(getAuthUserId)
   const apiErrors = useSelector(getAuthErrors)
 
   const dispatch = useDispatch()

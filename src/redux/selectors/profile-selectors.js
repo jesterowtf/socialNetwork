@@ -10,10 +10,13 @@ export const getPosts = (state) => {
   return state.profilePage.posts;
 }
 
-export const getImagePost = (state) => {
-  return state.profilePage.newPostImageUrl;
+export const getTemporaryImageUrl = (state) => {
+  return state.profilePage.temporaryImageUrl;
+}
+export const getTemporaryAvatarUrl = (state) => {
+  return state.profilePage.temporaryAvatarUrl;
 }
 
 export const getFollowedUsers = (state) => {
-  return state.profilePage.profile?.followed;
+  return state.auth.authUserProfile.followed;
 }

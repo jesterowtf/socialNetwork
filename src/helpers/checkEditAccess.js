@@ -1,5 +1,5 @@
-const CheckEditAccess = (authUserId, postId ) => {
-  return authUserId === postId;
+const CheckEditAccess = (authUserId, targetUserId ) => {
+  return authUserId === targetUserId;
 };
 
 export default CheckEditAccess;

@@ -5,7 +5,7 @@ import {setUserProfileStatus} from "../../../redux/profile-reducer";
 import {getStatus} from "../../../redux/selectors/profile-selectors";
 
 const ProfileStatus = (props) => {
-  const { userId } = props;
+  const { userId, access } = props;
 
   const status = useSelector(getStatus)
 
@@ -36,7 +36,11 @@ const ProfileStatus = (props) => {
       {
         !editMode
         ?
-        <span className={s.status} onDoubleClick={editModeOn}>{status}</span>
+        <span className={s.status} onDoubleClick={() => {
+          if (access) {
+            editModeOn()
+          }
+        }}>{status}</span>
         :
         <input className={s.statusInput} autoFocus={true} onBlur={editModeOff} onChange={changeStatus} value={newStatus}
                type='text'/>

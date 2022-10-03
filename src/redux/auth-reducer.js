@@ -23,7 +23,6 @@ export const addErrors = (error) => {
 
 let initialState = {
   authUserProfile: {},
-  // email: null,
   userId: null,
   isAuth: false,
   getErrors: null
@@ -34,7 +33,6 @@ const authReducer = (state = initialState, action) => {
     case SET_AUTH_USER:
       return {
         ...state,
-        // email: action.data.email,
         userId: action.id,
         isAuth: true
       }
