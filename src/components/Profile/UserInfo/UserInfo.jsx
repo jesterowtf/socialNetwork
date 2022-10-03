@@ -7,7 +7,6 @@ import {getProfile, getTemporaryAvatarUrl} from "../../../redux/selectors/profil
 import {
   getUserProfile,
   updateUserProfile, uploadAvatarAndGetUrl,
-  uploadImageAndGetUrl
 } from "../../../redux/profile-reducer";
 import EditProfile from "./EditProfile";
 import changePhotoImg from "../../../assets/images/change.png"
