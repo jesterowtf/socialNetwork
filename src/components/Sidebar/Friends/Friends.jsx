@@ -4,14 +4,18 @@ import Friend from "./Friend/Friend";
 import {useDispatch, useSelector} from "react-redux";
 import {getFriendsData} from "../../../redux/selectors/sidebar-selectors";
 import {getFriends} from "../../../redux/sidebar-reducer";
+import {getIsAuth} from "../../../redux/selectors/login-selectors";
 
 const Friends = ({followedUsers}) => {
   const friendsData = useSelector(getFriendsData)
+  const isAuth = useSelector(getIsAuth)
   const dispatch = useDispatch()
 
 
   useLayoutEffect(() => {
-    dispatch(getFriends());
+    if (isAuth) {
+      dispatch(getFriends());
+    }
   }, [followedUsers])
 
   return (
