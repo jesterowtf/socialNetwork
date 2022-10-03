@@ -4,12 +4,12 @@ import Friends from "./Friends/Friends";
 import s from "./sidebar.module.scss";
 import {useSelector} from "react-redux";
 import {getAuthUserId} from "../../redux/selectors/login-selectors";
-import {getFriendsData} from "../../redux/selectors/sidebar-selectors";
+import {getFollowedUsers} from "../../redux/selectors/profile-selectors";
 
 const Sidebar = (props) => {
-
   const authUserId = useSelector(getAuthUserId)
-  const friendsData = useSelector(getFriendsData)
+  const followedUsers = useSelector(getFollowedUsers)
+
 
   const checkActive = () => {
     const status = ({ isActive }) =>
@@ -42,7 +42,7 @@ const Sidebar = (props) => {
           Настройки
         </NavLink>
       </nav>
-      <Friends friendsData={friendsData} />
+      <Friends authUserId={authUserId} followedUsers={followedUsers}/>
     </div>
   );
 };

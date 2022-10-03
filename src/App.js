@@ -19,6 +19,7 @@ const Feed = lazy(() => import('./components/Feed/Feed'));
 
 export const App = (props) => {
   const initialized = useSelector(getInitialized)
+
   const authUserId = useSelector(getAuthUserId)
 
   const dispatch = useDispatch()
@@ -30,7 +31,6 @@ export const App = (props) => {
   }, [])
 
   useEffect(() => {
-
     dispatch(initializeApp())
   }, [authUserId])
 

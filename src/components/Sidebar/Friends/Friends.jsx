@@ -1,15 +1,24 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import s from "./friends.module.scss";
-import Friend from "./Friend";
+import Friend from "./Friend/Friend";
+import {useDispatch, useSelector} from "react-redux";
+import {getFriendsData} from "../../../redux/selectors/sidebar-selectors";
+import {getFriends} from "../../../redux/sidebar-reducer";
 
-const Friends = (props) => {
+const Friends = ({followedUsers}) => {
+  const friendsData = useSelector(getFriendsData)
+  const dispatch = useDispatch()
 
-  let {friendsData} = props;
+
+  useLayoutEffect(() => {
+    dispatch(getFriends());
+  }, [followedUsers])
+
   return (
     <div className={s.friends}>
         <h3 className={s.friendTitle}>Друзья:</h3>
         <div className={s.friendsItems}>
-          {friendsData.map((fr) => <Friend key={fr.id} name={fr.name} ava={fr.ava} />)}
+          {friendsData.map((friend) => <Friend key={friend._id} firstName={friend.firstName} secondName={friend.secondName} avatar={friend.avatar} id={friend._id}/>)}
         </div>
       </div>
   );

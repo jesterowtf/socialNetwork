@@ -1,4 +1,5 @@
 import {userAPI} from '../API/api'
+import {checkAuth} from "./auth-reducer";
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
@@ -38,7 +39,7 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         users: state.users.map(u => {
           if (u._id === action.authUserId) {
-            return {...u, followed: [...u.followed, action.targetUserId], }
+            return {...u, followed: [...u.followed, action.targetUserId] }
           }
           return u;
         })
@@ -47,7 +48,7 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         users: state.users.map(u => {
-          if (u._id === action.userId) {
+          if (u._id === action.authUserId) {
             return {...u, followed: u.followed.filter(u => {
               return u._id !== action.targetUserId
               })}
@@ -82,14 +83,14 @@ const usersReducer = (state = initialState, action) => {
 // THUNKS
 
 export const getUsers = () => {
-  return async (dispatch) => {
+  return (dispatch) => {
     dispatch(toggleIsFetching(true))
     userAPI.getUsers()
       .then((res) => {
         dispatch(toggleIsFetching(false));
         dispatch(setUsers(res.data));
+        dispatch(checkAuth());
       });
-
   }
 }
 
@@ -101,6 +102,7 @@ export const follow = (authUserId, targetUserId) => {
         console.log(res)
         dispatch(followSuccess(authUserId, targetUserId))
         dispatch(toggleFollowing(false, targetUserId))
+        dispatch(checkAuth());
       })
   }
 }
@@ -113,6 +115,7 @@ export const unfollow = (authUserId, targetUserId) => {
         console.log(res)
         dispatch(unfollowSuccess(authUserId, targetUserId))
         dispatch(toggleFollowing(false, targetUserId))
+        dispatch(checkAuth());
       })
   }
 }

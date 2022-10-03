@@ -100,6 +100,8 @@
     margin-bottom: 20px;
 }
 
+
+
 .postText {
     border-radius: 20px;
     background-color: var(--inputFormBacColor);
@@ -113,6 +115,43 @@
     position: absolute;
     left: 5px;
     bottom: 5px;
+
+    .editButtons {
+        position: absolute;
+        left: 0;
+        bottom: 45px;
+        width: 80px;
+        height: 36px;
+        background: var(--themeButtonBg);
+        border: 1px solid var(--dialogsBack);
+        border-radius: 20px;
+        padding: 5px 8px;
+        display: flex;
+        justify-content: center;
+        opacity: 0;
+        transition: 0.4s linear;
+    }
+
+    .settingButton {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+
+        .settingButton__img {
+            width: 40px;
+            height: 40px;
+            transition: 0.4s;
+        }
+
+
+
+    }
+
+    &:hover .editButtons {
+        opacity: 1;
+    }
 
 
     .deleteButton {
@@ -129,7 +168,6 @@
         .deleteButton__img {
             width: 30px;
             height: 30px;
-
         }
     }
 }

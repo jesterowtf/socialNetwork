@@ -1,7 +1,7 @@
 import * as axios from "axios";
 
 export let instance = axios.create({
-  baseURL: 'https://social-network-backend-lemon.vercel.app/',
+  baseURL: `${process.env.REACT_APP_STATIC_FILES_URL}/`,
   withCredentials: true,
   headers: {
     "content-type": "application/json",
@@ -20,7 +20,7 @@ instance.interceptors.response.use((config) => {
   if (error.response.status === 401 && error.config && !error.config._isRetry) {
     originalRequest._isRetry = true;
     try {
-      const response = await axios.get(`https://social-network-backend-lemon.vercel.app/auth/refresh`, {withCredentials: true})
+      const response = await axios.get(`${process.env.REACT_APP_STATIC_FILES_URL}/auth/refresh`, {withCredentials: true})
       localStorage.setItem('token', response.data.accessToken);
       console.log(response.data.accessToken)
       return instance.request(originalRequest);
@@ -82,6 +82,16 @@ export const authAPI = {
   }
 }
 
+export const sidebarAPI = {
+  getFriends() {
+    return instance.get(`api/friends`)
+      .then(response => response.data)
+      .catch((reject) => {
+        return reject;
+      })
+  },
+}
+
 export const profileAPI = {
   getUserProfile(id) {
     return instance.get(`api/profile/${id}`)
@@ -92,6 +102,14 @@ export const profileAPI = {
   },
 
   setStatus(user) {
+    return instance.put(`api/users`, JSON.stringify(user))
+      .then(response => response.data)
+      .catch((reject) => {
+        return reject;
+      })
+  },
+
+  updateUser(user) {
     return instance.put(`api/users`, JSON.stringify(user))
       .then(response => response.data)
       .catch((reject) => {
