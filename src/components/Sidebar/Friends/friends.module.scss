@@ -1,11 +1,14 @@
 .friendsItems {
     display: flex;
+    flex-wrap: wrap;
+    padding: 0 15px;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    gap: 5px;
 }
 
 .friendTitle {
-    color:rgb(249, 252, 255);
+    color: var(--mainText);;
     margin-left: 30px;
     font-size: 18px;
     font-weight: normal;

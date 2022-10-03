@@ -63,8 +63,72 @@
 .postButtons {
     display: flex;
     margin: 0 10px;
+
 }
 
 .uploadInput {
     display: none;
+}
+
+.oldImage {
+    width: 90px;
+    height: 70px;
+}
+
+.editPost {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    margin: 0 auto;
+    width: 450px;
+    padding: 40px;
+    border-radius: 20px;
+    background-color: var(--postBackColor);
+    border: 2px solid  var(--inputFormBordColor);
+
+    .newPostForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .newPost {
+        width: 400px;
+        height: 90px;
+        font-size: 14px;
+    }
+
+    .editPost__title {
+        text-align: center;
+    }
+
+    .newPostTitle {
+        height: 20px;
+    }
+
+    .postButtons {
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+    }
+
+    .inputTitle {
+        margin-bottom: 5px;
+    }
+
+    .oldImage {
+        margin: 0 5px;
+    }
+
+    .sendPost {
+        margin: 0 5px;
+        display: block;
+        padding: 5px 10px;
+        width: 150px;
+        height: 40px;
+        font-size: 14px;
+        outline: none;
+        border-radius: 5px;
+    }
 }

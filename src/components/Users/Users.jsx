@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useLayoutEffect} from "react";
 import Preloader from "../../UI/Preloader/Preloader";
 import User from "./User/User";
 import s from "./users.module.scss";
@@ -17,9 +17,12 @@ const Users = (props) => {
 
   const dispatch = useDispatch()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(getUsers())
   }, []);
+
+  useEffect(() => {
+  }, [followedUsers])
 
   return (
     <>

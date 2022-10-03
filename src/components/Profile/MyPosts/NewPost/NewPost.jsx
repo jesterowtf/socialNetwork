@@ -1,14 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useLayoutEffect, useState} from "react";
 import s from "./newpost.module.scss";
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {sendNewPost, uploadImageAndGetUrl} from "../../../../redux/profile-reducer";
-import {getImagePost} from "../../../../redux/selectors/profile-selectors";
+import {getTemporaryImageUrl} from "../../../../redux/selectors/profile-selectors";
+import noimage from "./../../../../assets/images/noimage.png"
 
 const NewPost = (props) => {
 
   const dispatch = useDispatch()
-  const imageUrlRedux = useSelector(getImagePost)
+  const imageUrlRedux = useSelector(getTemporaryImageUrl)
 
   const {register, handleSubmit, reset} = useForm();
 
@@ -19,17 +20,25 @@ const NewPost = (props) => {
   const onSubmit = async (data, e) => {
     data.image = imageUrlRedux;
     dispatch(sendNewPost({text: data.text, title: data.title, image: data.image} ))
+    setImageUrl('')
     reset()
   }
+
+  useLayoutEffect(() => {
+    if (!!imageUrlRedux) {
+      setImageUrl(imageUrlRedux)
+    }
+  }, [imageUrlRedux])
+
   useEffect(() => {
-  }, [imageUrl, uploadRef])
+
+  }, [imageUrl])
 
   const onChange = async (e) => {
     try {
       const formData = new FormData()
       formData.append("image", e.target.files[0])
-      dispatch(uploadImageAndGetUrl(formData))
-      setImageUrl(imageUrlRedux)
+      await dispatch(uploadImageAndGetUrl(formData))
     } catch (e) {
       console.log(e)
     }
@@ -65,6 +74,9 @@ const NewPost = (props) => {
                  className={s.uploadInput}
             ref={uploadRef}
           ></input>
+          <img src={imageUrl ?`${process.env.REACT_APP_STATIC_FILES_URL}${imageUrl}` : `${noimage}`}
+               alt="oldImage"
+               className={s.oldImage}/>
 
           <button type='submit' className={s.sendPost}>Отправить</button>
         </div>

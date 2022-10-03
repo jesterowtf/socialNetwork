@@ -6,9 +6,12 @@ import like from "./../../../../assets/images/like.svg"
 import likelight from "./../../../../assets/images/likelight.svg"
 import notlike from "./../../../../assets/images/notlike.svg"
 import noavatar from "../../../../assets/images/noavatar.png";
-import xbutton from "../../../../assets/images/xbutton.png";
+import trash from "../../../../assets/images/trash.png";
+import pen from "../../../../assets/images/pen.png";
+import settings from "../../../../assets/images/settings.png";
 import {Link} from "react-router-dom";
 import {deletePost} from "../../../../redux/profile-reducer";
+import EditPost from "./EditPost";
 
 const Post = (props) => {
   let { text, title, image,
@@ -18,9 +21,10 @@ const Post = (props) => {
 
   const [liked, setLiked] = useState(false);
   const [deleted, setPostDeleted] = useState(false);
+  const [editMode, setEditMode] = useState(false)
 
   const trueDate = createdAt?.replace(/T/, ' ').replace(/\..+/, '');
-  const postImage = `https://social-network-backend-lemon.vercel.app${image}`;
+  const postImage = `${process.env.REACT_APP_STATIC_FILES_URL}${image}`;
   const theme = localStorage.getItem('app-theme');
 
 
@@ -30,11 +34,11 @@ const Post = (props) => {
     } else {
       setLiked(false)
     }
-  }, [postWasLiked]);
+  }, [postWasLiked, editMode]);
 
   useEffect(() => {
 
-  }, [likes] )
+  }, [likes, editMode] )
 
   const onDelete = (postId) => {
     dispatch(deletePost(postId))
@@ -51,6 +55,14 @@ const Post = (props) => {
     setLiked(false)
   }
 
+  const editModeOn = (e) => {
+    setEditMode(true)
+  }
+
+  const editModeOff = () => {
+    setEditMode(false)
+  }
+
   return (
     <>
       {!deleted &&
@@ -59,7 +71,7 @@ const Post = (props) => {
         <div className={s.post__ava}>
           <Link to={`/profile/${authorId}`}>
             <img
-              src={authorImage ? authorImage : noavatar}
+              src={authorImage ? `${process.env.REACT_APP_STATIC_FILES_URL}${authorImage}` : noavatar}
               alt="authorImage"
               className={s.post__avaImg}
             />
@@ -83,11 +95,19 @@ const Post = (props) => {
 
       <div className={s.bottomStroke}>
         {editAccess &&
-        <div className={s.postSetting}>
-          <button className={s.deleteButton} onClick={() => onDelete(id)}>
-            <img src={xbutton} alt="deletePost" className={s.deleteButton__img}/>
-          </button>
-        </div> }
+          <div className={s.postSetting}>
+            <button className={s.settingButton}>
+              <img src={settings} alt="settings" className={s.settingButton__img}/>
+            </button>
+            <div className={s.editButtons}>
+              <button className={s.deleteButton} onClick={() => onDelete(id)}>
+                <img src={trash} alt="Удалить пост" className={s.deleteButton__img}/>
+              </button>
+              <button className={s.deleteButton} onClick={editModeOn}>
+                <img src={pen} alt="Редактировать пост" className={s.deleteButton__img}/>
+              </button>
+            </div>
+        </div>}
         <div className={s.post__data}>
           {trueDate}
         </div>
@@ -106,8 +126,15 @@ const Post = (props) => {
           </div>
         }
 
-
       </div>
+      { editMode &&
+        <EditPost
+          editModeOff={editModeOff}
+          postId={id}
+          title={title}
+          text={text}
+          image={image}
+        />}
     </div>}
     </>
   );

@@ -51,8 +51,6 @@ const Feed = (props) => {
                 return el === authUserId;
               })
 
-
-
               return <Post
                 likes={post.likesCount}
                 text={post.text}
