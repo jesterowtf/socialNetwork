@@ -20,7 +20,7 @@ instance.interceptors.response.use((config) => {
   if (error.response.status === 401 && error.config && !error.config._isRetry) {
     originalRequest._isRetry = true;
     try {
-      const response = await axios.get(`${process.env.REACT_APP_STATIC_FILES_URL}/auth/refresh`, {withCredentials: true})
+      const response = await axios.get(`${process.env.REACT_APP_STATIC_FILES_URL}/api/auth/refresh`, {withCredentials: true})
       localStorage.setItem('token', response.data.accessToken);
       console.log(response.data.accessToken)
       return instance.request(originalRequest);
@@ -49,13 +49,13 @@ export const userAPI = {
 
 export const authAPI = {
   getAuth() {
-    return instance.get('auth/refresh').then(response => {
+    return instance.get('api/auth/refresh').then(response => {
       return response.data
     })
   },
 
   registration(email, password) {
-    return instance.post(`auth/registration`, {
+    return instance.post(`api/auth/registration`, {
       email,
       password,
     })
@@ -68,7 +68,7 @@ export const authAPI = {
   },
 
   goLogin(email, password) {
-    return instance.post(`auth/login`, {email, password})
+    return instance.post(`api/auth/login`, {email, password})
       .then((response) => {
         return response.data
       })
@@ -78,7 +78,7 @@ export const authAPI = {
 
   },
   goLogout() {
-    return instance.post(`auth/logout`).then(response => response.data)
+    return instance.post(`api/auth/logout`).then(response => response.data)
   }
 }
 
@@ -121,7 +121,7 @@ export const profileAPI = {
 
 export const postAPI = {
   uploadImage(image) {
-    return instance.post(`upload`, image)
+    return instance.post(`api/upload`, image)
       .then(response => response.data.url)
       .catch((reject) => {
         return reject;
