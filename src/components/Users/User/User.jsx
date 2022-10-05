@@ -47,7 +47,7 @@ const User = (props) => {
     <div className={s.user}>
       <div className={s.userLeft}>
         <div className={s.avaBox}>
-          <img src={photos != null ? `${process.env.REACT_APP_STATIC_FILES_URL}${photos}` : noavatar} alt="ava" className={s.ava}/>
+          <img src={photos || noavatar} alt="ava" className={s.ava}/>
         </div>
       </div>
       <div className={s.userRight}>

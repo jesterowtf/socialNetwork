@@ -100,8 +100,6 @@
     margin-bottom: 20px;
 }
 
-
-
 .postText {
     border-radius: 20px;
     background-color: var(--inputFormBacColor);
@@ -144,15 +142,11 @@
             height: 40px;
             transition: 0.4s;
         }
-
-
-
     }
 
     &:hover .editButtons {
         opacity: 1;
     }
-
 
     .deleteButton {
         background-color: transparent;

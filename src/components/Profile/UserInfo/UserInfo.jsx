@@ -10,6 +10,7 @@ import {
 } from "../../../redux/profile-reducer";
 import EditProfile from "./EditProfile";
 import changePhotoImg from "../../../assets/images/change.png"
+import {uploadToCloud} from "../../../API/api";
 
 const UserInfo = ({userId, access}) => {
 
@@ -50,7 +51,7 @@ const UserInfo = ({userId, access}) => {
     try {
       const formData = new FormData()
       formData.append("image", e.target.files[0])
-      dispatch(uploadAvatarAndGetUrl(formData))
+      uploadToCloud(formData, uploadAvatarAndGetUrl, dispatch)
     } catch (e) {
       console.log(e)
     }
@@ -69,7 +70,7 @@ const UserInfo = ({userId, access}) => {
 
           <div className={s.ava__wrapper}>
             <img
-              src={`${process.env.REACT_APP_STATIC_FILES_URL}${profile.avatar}` ||
+              src={profile.avatar ||
                 "https://placepic.ru/wp-content/uploads/2021/02/image_562610131056464036330.jpg"}
               alt="avatar"
               className={s.ava__img}

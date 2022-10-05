@@ -4,6 +4,7 @@ import {getTemporaryImageUrl} from "../../../../redux/selectors/profile-selector
 import {useForm} from "react-hook-form";
 import {updatePost, uploadImageAndGetUrl} from "../../../../redux/profile-reducer";
 import s from "../NewPost/newpost.module.scss";
+import {uploadToCloud} from "../../../../API/api";
 
 const EditPost = ({editModeOff, postId, text, title, image}) => {
 
@@ -42,7 +43,7 @@ const EditPost = ({editModeOff, postId, text, title, image}) => {
     try {
       const formData = new FormData()
       formData.append("image", e.target.files[0])
-      await dispatch(uploadImageAndGetUrl(formData))
+      uploadToCloud(formData, uploadImageAndGetUrl, dispatch)
       setNewImage(imageUrlRedux)
     } catch (e) {
       console.log(e)
@@ -83,7 +84,7 @@ const EditPost = ({editModeOff, postId, text, title, image}) => {
             e.preventDefault()
             uploadRef.current.click()
           } } className={s.sendPost}>Изменить изображение</button>
-          <img src={newImage ?`${process.env.REACT_APP_STATIC_FILES_URL}${newImage}` : `${process.env.REACT_APP_STATIC_FILES_URL}${image}`}
+          <img src={newImage ? newImage : image}
                alt="oldImage"
                className={s.oldImage}/>
           <input

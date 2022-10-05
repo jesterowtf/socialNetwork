@@ -9,7 +9,7 @@ const Friend = (props) => {
   return (
     <Link to={`/profile/${id}`} className={s.friendsLink} title={`${firstName} ${secondName}`}>
       <div className={s.avatar}>
-        <img src={`${process.env.REACT_APP_STATIC_FILES_URL}${avatar}`} className={s.friendsImg} key={id}   alt={firstName}/>
+        <img src={avatar} className={s.friendsImg} key={id}   alt={firstName}/>
       </div>
       {firstName}
     </Link>

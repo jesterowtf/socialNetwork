@@ -178,7 +178,6 @@ export const uploadImageAndGetUrl = (image) => {
   return (dispatch) => {
     postAPI.uploadImage(image)
       .then(imageUrl => {
-        console.log(`upload image:`, imageUrl)
         dispatch(getImageUrl(imageUrl))
       })
   }
@@ -188,7 +187,6 @@ export const uploadAvatarAndGetUrl = (image) => {
   return (dispatch) => {
     postAPI.uploadImage(image)
       .then(imageUrl => {
-        console.log(`upload image:`, imageUrl)
         dispatch(getAvatarUrl(imageUrl))
       })
   }

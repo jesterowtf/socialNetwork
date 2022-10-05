@@ -24,7 +24,7 @@ const Post = (props) => {
   const [editMode, setEditMode] = useState(false)
 
   const trueDate = createdAt?.replace(/T/, ' ').replace(/\..+/, '');
-  const postImage = `${process.env.REACT_APP_STATIC_FILES_URL}${image}`;
+  const postImage = image;
   const theme = localStorage.getItem('app-theme');
 
 
@@ -71,7 +71,7 @@ const Post = (props) => {
         <div className={s.post__ava}>
           <Link to={`/profile/${authorId}`}>
             <img
-              src={authorImage ? `${process.env.REACT_APP_STATIC_FILES_URL}${authorImage}` : noavatar}
+              src={authorImage || noavatar}
               alt="authorImage"
               className={s.post__avaImg}
             />

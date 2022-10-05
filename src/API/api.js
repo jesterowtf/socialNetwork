@@ -120,10 +120,22 @@ export const profileAPI = {
 
 }
 
+export const uploadToCloud = (data, func, dispatch) => {
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://api.imageban.ru/v1");
+  xhr.onload = function() {
+    dispatch(func(JSON.parse(xhr.responseText).data.link))
+  }
+  xhr.setRequestHeader('Authorization', 'TOKEN 7JdqH9BQ6yZRqQXvya3p');
+  xhr.send(data);
+}
+
 export const postAPI = {
   uploadImage(image) {
-    return instance.post(`api/upload`, image)
-      .then(response => response.data.url)
+    return instance.post(`api/upload`, {"image": image})
+      .then(response => {
+        return response.data
+      })
       .catch((reject) => {
         return reject;
       })

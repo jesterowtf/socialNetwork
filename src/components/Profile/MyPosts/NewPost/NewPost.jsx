@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {sendNewPost, uploadImageAndGetUrl} from "../../../../redux/profile-reducer";
 import {getTemporaryImageUrl} from "../../../../redux/selectors/profile-selectors";
 import noimage from "./../../../../assets/images/noimage.png"
+import {uploadToCloud} from "../../../../API/api";
 
 const NewPost = (props) => {
 
@@ -38,7 +39,7 @@ const NewPost = (props) => {
     try {
       const formData = new FormData()
       formData.append("image", e.target.files[0])
-      await dispatch(uploadImageAndGetUrl(formData))
+      uploadToCloud(formData, uploadImageAndGetUrl, dispatch)
     } catch (e) {
       console.log(e)
     }
@@ -74,7 +75,7 @@ const NewPost = (props) => {
                  className={s.uploadInput}
             ref={uploadRef}
           ></input>
-          <img src={imageUrl ?`${process.env.REACT_APP_STATIC_FILES_URL}${imageUrl}` : `${noimage}`}
+          <img src={imageUrl || noimage}
                alt="oldImage"
                className={s.oldImage}/>
 

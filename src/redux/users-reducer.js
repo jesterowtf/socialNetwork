@@ -99,7 +99,6 @@ export const follow = (authUserId, targetUserId) => {
     dispatch(toggleFollowing(true, targetUserId))
     userAPI.followUser(targetUserId)
       .then((res) => {
-        console.log(res)
         dispatch(followSuccess(authUserId, targetUserId))
         dispatch(toggleFollowing(false, targetUserId))
         dispatch(checkAuth());
@@ -112,7 +111,6 @@ export const unfollow = (authUserId, targetUserId) => {
     dispatch(toggleFollowing(true, targetUserId))
     userAPI.unfollowUser(targetUserId)
       .then((res) => {
-        console.log(res)
         dispatch(unfollowSuccess(authUserId, targetUserId))
         dispatch(toggleFollowing(false, targetUserId))
         dispatch(checkAuth());
