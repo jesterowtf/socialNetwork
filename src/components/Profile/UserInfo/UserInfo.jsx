@@ -20,7 +20,6 @@ const UserInfo = ({userId, access}) => {
 
   const [editMode, setEditMode] = useState(false)
   const [visibleButton, setVisibleButton] = useState(true)
-
   const uploadPhoto = React.createRef();
 
   useEffect(() => {
