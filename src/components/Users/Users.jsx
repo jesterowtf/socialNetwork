@@ -39,16 +39,16 @@ const Users = (props) => {
             })
 
             return (
-            <User
-            userId={u._id}
-            following={following}
-            firstname={u.firstName}
-            secondName={u.secondName}
-            status={u.status}
-            photos={u.avatar}
-            key={u._id}
-            followingProgress={followingProgress}
-            />
+              <User
+                userId={u._id}
+                following={following}
+                firstName={u.firstName}
+                secondName={u.secondName}
+                status={u.status}
+                photos={u.avatar}
+                key={u._id}
+                followingProgress={followingProgress}
+              />
             );
           })}
         </div>

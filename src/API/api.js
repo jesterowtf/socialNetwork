@@ -174,14 +174,6 @@ export const postAPI = {
       })
   },
 
-  getOnePost(id) {
-    return instance.get(`api/posts/${id}`)
-      .then(response => response.data)
-      .catch((reject) => {
-        return reject;
-      })
-  },
-
   updatePost(post) {
     return instance.put(`api/posts`, {post})
       .then(response => response.data)

@@ -1,0 +1,43 @@
+.dialogsList__item {
+    padding: 0 10px 0 0;
+    margin-bottom: 3px;
+    color: var(--mainText);
+    cursor: pointer;
+    border-bottom: 1px dashed var(--secondColor);
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 250px;
+}
+
+.itemAva {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.dialogsList__item:hover {
+    background-color: var(--secondColor);
+}
+
+.navlink {
+    text-decoration: none;
+}
+
+.active {
+    background-color: var(--secondColor);
+}
+
+.noDialogs {
+    padding: 0 20px;
+    display: block;
+    margin: auto;
+}
+
+
+.dialogsItems {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--usersBack);
+}

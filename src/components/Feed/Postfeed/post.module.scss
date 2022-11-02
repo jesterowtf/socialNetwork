@@ -1,0 +1,113 @@
+.posts__Item {
+    background-color: var(--anotherColor);
+    border-radius: 10px;
+    padding: 15px 15px 45px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.post__box {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.post__ava {
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.post__text {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post__avaImg {
+    cursor: pointer;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.post__buttons {
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--likesBorder);
+    border-radius: 30px;
+    padding: 5px 15px 5px 15px;
+    color: var(--secondText);
+    background: var(--anotherColor);
+}
+
+.post__date {
+    margin-top: 10px;
+}
+
+
+.post__data {
+    position: absolute;
+    right: 70px;
+    bottom: 8px;
+    margin-right: 20px;
+}
+
+.bottomStroke {
+    display: flex;
+}
+
+.likes {
+    width: 30px;
+    margin-right: 10px;
+    height: auto;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.likes:hover {
+    transform: translateX(-5px)
+}
+
+.postTitleBox {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.postTextBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.postImageBox {
+    flex: 0 0 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.postImage {
+    border-radius: 10px;
+    max-width: 800px;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.postText {
+    border-radius: 10px;
+    padding: 15px;
+    line-height: 20px;
+    white-space: pre-wrap;
+}
+
+.post__header {
+    display: flex;
+    margin-bottom: 10px;
+}

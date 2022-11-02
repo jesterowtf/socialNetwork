@@ -6,24 +6,28 @@ import {useDispatch, useSelector} from "react-redux";
 import {getIsAuth, getUserName} from "../../redux/selectors/login-selectors";
 import {logout} from "../../redux/auth-reducer";
 import ThemeToggler from "./ThemeToggler/ThemeToggler";
+import { getAuth, signOut } from "firebase/auth";
 
 const Header = (props) => {
 
-  const auth = useSelector(getIsAuth)
+  const authFirebase = getAuth();
 
-  const navigate = useNavigate()
+  const auth = useSelector(getIsAuth)
   const userName = useSelector(getUserName)
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const loginOut = () => {
+  const loginOut = async () => {
+    await signOut(authFirebase)
     dispatch(logout())
   }
 
   useEffect(() => {
     if (!auth) {
       navigate('/login')
+
     }
-  }, [auth])
+  }, [auth, navigate])
 
   return (
     <>
@@ -34,7 +38,7 @@ const Header = (props) => {
         </div>
         <div className={s.rightSide}>
           <div className={s.login}>
-            {auth ? <NavLink className={s.loginButton} onClick={loginOut} to={'/login'}>{userName} | Выйти</NavLink> :
+            {auth ? <NavLink className={s.loginButton} onClick={loginOut} to={'/login'} >{userName} | Выйти</NavLink> :
               <NavLink className={s.loginButton} to={'/login'}> Войти </NavLink>}
           </div>
           <ThemeToggler />

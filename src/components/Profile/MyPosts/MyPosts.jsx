@@ -1,10 +1,10 @@
-import React, {useLayoutEffect} from "react";
+import React, {useEffect, useLayoutEffect} from "react";
 import s from "./myPosts.module.scss";
 import Post from "./Post/Post";
 import NewPost from "./NewPost/NewPost";
 import {useDispatch, useSelector} from "react-redux";
 import {getPosts} from "../../../redux/selectors/profile-selectors";
-import {getUserPosts, setDislike, setLike} from "../../../redux/profile-reducer";
+import {getUserPosts, setDislike, setLike, updateUserProfile} from "../../../redux/profile-reducer";
 import {getAuthUserId} from "../../../redux/selectors/login-selectors";
 
 const MyPosts = ({userId, access}) => {
@@ -14,9 +14,14 @@ const MyPosts = ({userId, access}) => {
 
   useLayoutEffect(() => {
     dispatch(getUserPosts(userId));
-  }, [userId]);
+  }, [dispatch, userId]);
 
   const posts = useSelector(getPosts)
+
+  useEffect(() => {
+
+  }, [posts])
+    
 
   return (
     <div>

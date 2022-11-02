@@ -23,12 +23,7 @@ const appReducer = (state = initialState, action) => {
 
 export const initializeApp =  () => {
   return (dispatch) => {
-    // if (localStorage.getItem('token')) {
-    //   let promise = dispatch(checkAuth())
-    //   Promise.all([promise]).then(() => {
         dispatch(initializeAC())
-      // })
-    // }
   }
 }
 

@@ -1,32 +1,30 @@
 import React from "react";
-import Dialog from "./Dialog/Dialog";
-import Message from "./Message/Message";
 import s from "./dialogs.module.scss";
-import NewMessage from "./NewMessage/NewMessage";
 import {useSelector} from "react-redux";
-import {getDialogsData, getMessagesData} from "../../redux/selectors/dialogs-selectors";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+import {getAuthUserProfile} from "../../redux/selectors/login-selectors";
+import Chat from "./Chat";
+import DialogList from "./DialogList/DialogList";
+import {useParams} from "react-router-dom";
 
 const Dialogs = (props) => {
+  const userData = useSelector(getAuthUserProfile)
+  const params = useParams()
+  const targetUser = params.userId
 
-  const dialogsData = useSelector(getDialogsData)
-  const messagesData = useSelector(getMessagesData)
-
-  let dialogsElements = dialogsData.map((d, i) => <Dialog src={d.src} id={d.id} name={d.name} key={i}/> );
-  let messagesElements = messagesData.map((m, i) => <Message message={m.message} key={i}/> );
-
-   return (
+  return (
     <div className={s.dialogs}>
       <h2 className={s.dialogs__title}>Сообщения</h2>
+
       <div className={s.dialogsBox}>
         <div className={s.dialogsList}>
-          { dialogsElements }
+          <DialogList userData={userData} targetUser={targetUser}/>
         </div>
-        <div className={s.dialogsItems}>
-          <div className={s.messages}>
-            { messagesElements }
-          </div>
-          <NewMessage />
-        </div>
+
+        { !targetUser ?
+          <span className={s.noMessages}>Чат не выбран</span> :
+          <Chat userData={userData}/>}
       </div>
     </div>
   );

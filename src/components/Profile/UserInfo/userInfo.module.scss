@@ -3,12 +3,25 @@
     background: var(--anotherColor);
     position: relative;
     border-radius: 20px;
-    flex: 45% 0 0;
+    flex: 0 0 45%;
     transition: 0.2s;
-
     &:hover .changePhotoDiv {
         opacity: 1;
     }
+}
+
+.userOptions {
+    position: absolute;
+    left: 50%;
+    bottom: -40px;
+    transform: translateX(-40%);
+    width: 100%;
+}
+
+.sendMessage {
+    text-decoration: none;
+
+    color: var(--mainText)
 }
 
 .ava__img {
@@ -52,12 +65,11 @@
     padding: 25px;
     position: relative;
     z-index: 1;
-
 }
 
 .user__about {
     margin-left: 50px;
-    font-size: 16px;
+
     flex: 50% 0 0;
     padding: 10px;
 }
@@ -86,16 +98,16 @@
 
 .spanInfoLeft {
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     flex: 0 120px;
     color: var(--thirdText);
 }
 
 .spanInfoRight {
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     flex: 250px;
-    line-height: 24px;
+    line-height: 16px;
 }
 
 .spanInfoRight a{
@@ -138,7 +150,7 @@
 
 .status {
     font-family: 'Roboto', sans-serif;
-    font-size: 16px !important;
+    font-size: 14px !important;
     color: var(--statusText);
     margin-bottom: 40px;
     display: block;
@@ -151,15 +163,21 @@
 .statusInput {
     width: 250px;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px !important;
-    color: #000000 !important;
+    font-size: 14px !important;
+    color: var(--statusText);
     margin-bottom: 40px;
     display: block;
     outline: none;
     padding: 5px 20px;
     border-radius: 5px;
     border-color: #fff;
-    background-color: #95cbf1;
+    background-color: var(--dialogsBack);
+}
+
+.editprofile__button {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
 }
 
 .refreshInfo__input {
@@ -187,23 +205,23 @@
 }
 
 .refreshInfo__button {
+    display: flex;
+    align-items: center;
     position: absolute;
     z-index: 2;
-    right: 30px;
-    top: 30px;
+    right: 0;
+    top: -10px;
     cursor: pointer;
-    width: 120px;
-    height: 50px;
-    border: 1px solid var(--inputFormButtonTextColor);
+    width: 170px;
+    height: 40px;
+    border: none;
     outline: none;
-    background-color: var(--inputFormBacColor);
+    background-color: transparent;
     color: var(--inputFormButtonTextColor);
     transition: 0.3s linear;
 
     &:hover {
-        border: 1px solid var(--inputFormButtonTextColor);
-        background-color: var(--inputFormBacColorHoverColor);
-        color: var(--inputFormButtonTextColor)
+        color: var(--thirdText )
     }
 }
 
@@ -246,4 +264,56 @@
 
 .uploadInput {
     display: none;
+}
+
+
+.follow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 30px;
+    background-image: var(--usersFollowBackgrColor);
+    font-size: 16px;
+    color: var(--usersFollowTextColor);
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: 0.5s;
+    background-size: 200% auto;
+    border:1px solid transparent;
+}
+
+.follow:hover {
+    background-position: right center;
+}
+
+
+.unfollow {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    background-image: var(--usersUnfollowBackgrColor);
+    font-size: 16px;
+    color: var(--usersUnfollowTextColor);
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 2px;
+    background-size: 200% auto;
+    border:1px solid transparent;
+}
+
+.unfollow:hover {
+    background-position: right center;
+}
+
+.userOptions {
+    display: flex;
+    gap: 5px;
+}
+
+.profileButtons {
+    height: 24px;
+    margin-right: 3px;
 }

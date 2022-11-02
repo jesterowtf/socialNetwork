@@ -20,7 +20,7 @@ const NewPost = (props) => {
 
   const onSubmit = async (data, e) => {
     data.image = imageUrlRedux;
-    dispatch(sendNewPost({text: data.text, title: data.title, image: data.image} ))
+    dispatch(sendNewPost({text: data.text, image: data.image} ))
     setImageUrl('')
     reset()
   }
@@ -48,13 +48,6 @@ const NewPost = (props) => {
   return (
     <div className={s.newPostBox}>
       <form onSubmit={handleSubmit(onSubmit)} className={s.newPostForm}>
-        <div>
-          <input {...register('title', {
-            required: true,
-            minLength: 3,
-            maxLength: 100
-          })} placeholder='Введите заголовок поста' className={`${s.newPost} ${s.newPostTitle}`}/>
-        </div>
         <div>
           <textarea {...register('text', {
             required: true,

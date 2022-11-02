@@ -1,12 +1,88 @@
-
 .message {
-    align-self: flex-start;
-    padding: 10px;
-    background-color: var(--inputMessageColorFon);
-    border: 1px solid  var(--secondColor);
-    border-radius: 15px;
+    padding: 4px;
+    border-bottom: 1px solid  var(--thirdText);
     margin-bottom: 12px;
     color: var(--mainText);
-    max-width: 400px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.message__head {
+    display: flex;
+    font-size: 12px;
+
+    position: relative;
+
+
+    .message__avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        margin: 5px;
+    }
+
+    .message__name {
+        line-height: 15px;
+        padding: 10px;
+    }
+}
+
+.message__body {
+    padding: 10px;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+
+    .date {
+        font-size: 8px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.owner {
+    .date {
+        font-size: 8px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .message__head {
+        justify-content: flex-start;
+    }
+
+    .message__body {
+        align-self: flex-start;
+    }
+
+    img {
+        order: 0;
+    }
+}
+
+.inbox {
+
+    .date {
+        font-size: 8px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .message__head {
+        justify-content: flex-end;
+
+    }
+
+    .message__body {
+        align-self: flex-end;
+    }
+
+    img {
+        margin-left: auto;
+        order: 1;
+    }
 }

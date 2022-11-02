@@ -9,7 +9,7 @@ const ProfileStatus = (props) => {
 
   const status = useSelector(getStatus)
 
-  const [newStatus, setStatus] = useState(status || '')
+  const [newStatus, setStatus] = useState(status || ' ')
   const [editMode, setEditMode] = useState(false)
 
   const dispatch = useDispatch()
@@ -40,7 +40,7 @@ const ProfileStatus = (props) => {
           if (access) {
             editModeOn()
           }
-        }}>{status}</span>
+        }}>{status || 'Статуса пока нет'}</span>
         :
         <input className={s.statusInput} autoFocus={true} onBlur={editModeOff} onChange={changeStatus} value={newStatus}
                type='text'/>

@@ -166,6 +166,7 @@ export const setUserProfileStatus = (userId, status) => {
 
 export const updateUserProfile = (userdata) => {
   return (dispatch) => {
+    console.log(userdata)
     profileAPI.updateUser(userdata)
       .then(data => {
         dispatch(setUserProfile(data))
@@ -238,10 +239,10 @@ export const updatePost = (newPostData) => {
   }
 }
 
-export const deletePost =  (id) => {
+export const deletePost =  (postId) => {
   return (dispatch) => {
-    postAPI.deletePost(id).then(() => {
-      dispatch(deletePostAC(id))
+    postAPI.deletePost(postId).then(() => {
+      dispatch(deletePostAC(postId))
     })
   }
 }

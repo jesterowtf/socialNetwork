@@ -4,10 +4,9 @@ import s from "./feed.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import {getIsFetching, getPostsData} from "../../redux/selectors/feed-selectors";
 import {getPosts} from "../../redux/feed-reducer";
-import Post from "../Profile/MyPosts/Post/Post";
+import Post from "../Feed/Postfeed/Post";
 import {getAuthUserId} from "../../redux/selectors/login-selectors";
 import {setDislike, setLike} from "../../redux/feed-reducer";
-import CheckEditAccess from "../../helpers/checkEditAccess";
 
 const Feed = (props) => {
   const isFetching = useSelector(getIsFetching)
@@ -25,7 +24,7 @@ const Feed = (props) => {
     } else {
       dispatch(getPosts())
     }
-  }, [friendsPostsMode])
+  }, [dispatch, friendsPostsMode])
 
   const changeGetPostsMode = () => {
     setFriendsPostsMode(prevState => !prevState)
@@ -56,6 +55,8 @@ const Feed = (props) => {
                 text={post.text}
                 title={post.title}
                 authorImage={post.user?.avatar}
+                firstName={post.user?.firstName}
+                secondName={post.user?.secondName}
                 key={post._id}
                 id={post._id}
                 setLike={setLike}
@@ -65,8 +66,7 @@ const Feed = (props) => {
                 createdAt={post?.createdAt}
                 likedAccounts={post?.likedAccounts}
                 image={post.image}
-                authorId={post.user._id}
-                editAccess={false}
+                authorId={post.user?._id}
               />
             })
           }

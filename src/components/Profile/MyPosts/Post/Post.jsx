@@ -14,9 +14,9 @@ import {deletePost} from "../../../../redux/profile-reducer";
 import EditPost from "./EditPost";
 
 const Post = (props) => {
-  let { text, title, image,
+  let { text, image,
     likes, authorId, authorImage,
-    createdAt, id, postWasLiked, editAccess, setLike, setDislike} = props;
+    createdAt, id, postWasLiked, editAccess, setLike, setDislike, updatePosts} = props;
   const dispatch = useDispatch();
 
   const [liked, setLiked] = useState(false);
@@ -78,16 +78,13 @@ const Post = (props) => {
           </Link>
         </div>
         <div className={s.post__text}>
-          <div className={s.postTitleBox}>
-            <span className={s.postTitle}>{title}</span>
-          </div>
           <div className={s.postTextBox}>
             {image &&
             <span className={s.postImageBox}>
               <img src={postImage} alt="postImage" className={s.postImage}/>
             </span>}
             <span className={s.postText}>
-              <pre style={{whiteSpace: "break-spaces"}}>{text}</pre>
+              <pre style={{whiteSpace: "break-spaces", fontFamily: "Montserrat"}}>{text}</pre>
             </span>
           </div>
         </div>
@@ -131,7 +128,6 @@ const Post = (props) => {
         <EditPost
           editModeOff={editModeOff}
           postId={id}
-          title={title}
           text={text}
           image={image}
         />}

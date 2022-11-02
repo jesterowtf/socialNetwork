@@ -1,13 +1,50 @@
-import React, {useEffect} from 'react';
+import React, { useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import s from "./loginform.module.scss";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getAuthErrors, getIsAuth} from "../../redux/selectors/login-selectors";
+import {getAuthErrors, getAuthUserId, getIsAuth} from "../../redux/selectors/login-selectors";
 import {login, registration} from "../../redux/auth-reducer";
+import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+
 
 const LoginForm = (props) => {
   const isAuth = useSelector(getIsAuth)
+  const authUserId = useSelector(getAuthUserId)
+
+  const auth = getAuth()
+
+  const loginFirebase = async (email, password) => {
+    console.log(email, password)
+    await signInWithEmailAndPassword(auth,email, password)
+      .then(response => console.log(response))
+      .catch(function (error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+          console.log('Wrong password.');
+        } else {
+          console.log(errorMessage);
+        }
+        console.log(`error:`, error);
+      })
+  }
+
+  const registerFirebase = async (email, password) => {
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then(response => console.log(response))
+      .catch(function (error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+          console.log('Wrong password.');
+        } else {
+          console.log(errorMessage);
+        }
+        console.log(`error:`, error);
+      })
+  }
+
   const apiErrors = useSelector(getAuthErrors)
 
   const dispatch = useDispatch()
@@ -21,6 +58,7 @@ const LoginForm = (props) => {
           data.email,
           data.password,
         ))
+        await loginFirebase(data.email, data.password)
         reset()
       }
     )()
@@ -32,6 +70,7 @@ const LoginForm = (props) => {
           data.email,
           data.password
         ))
+      await registerFirebase(data.email, data.password)
         reset()
       }
     )()
@@ -39,11 +78,12 @@ const LoginForm = (props) => {
 
   useEffect(() => {
     if (isAuth) {
-      navigate(-1)
+      // navigate(-1)
+      navigate(`/profile/${authUserId}`)
     }
-  }, [isAuth, navigate])
+  }, [authUserId, isAuth, navigate])
 
-  return (<div>
+  return (<div className={s.loginElements}>
     <form className={s.loginForm}>
 
       <div className={s.loginFormDiv}>
@@ -58,19 +98,18 @@ const LoginForm = (props) => {
 
       <div className={s.loginFormDiv}>
         <span className={s.inputsName}>Пароль</span>
-        <input {...register('password', {required: true, minLength: 4, maxLength: 15})} type="text"
+        <input {...register('password', {required: true, minLength: 6, maxLength: 15})} type="text"
                placeholder='Введите пароль'
                className={s.inputs}/>
         {errors.password?.type === 'required' &&
           <span className={s.errors}>{errors.password?.type === 'required' && "Введите пароль"}</span>}
         {errors.password?.type === 'minLength' &&
-          <span className={s.errors}>{errors.password?.type === 'minLength' && "Минимальный пароль 4 символа"}</span>}
+          <span className={s.errors}>{errors.password?.type === 'minLength' && "Минимальный пароль 6 символов"}</span>}
         {apiErrors && <span className={s.errors}>{apiErrors}</span> }
       </div>
 
     </form>
-    <button onClick={goLogin} className={s.enterButton}>Войти
-    </button>
+    <button onClick={goLogin} className={s.enterButton}>Войти </button>
     <button onClick={goRegistration} className={s.enterButton}>Регистрация</button>
   </div>);
 };

@@ -8,7 +8,6 @@ import {uploadToCloud} from "../../../../API/api";
 
 const EditPost = ({editModeOff, postId, text, title, image}) => {
 
-  const [newTitle, setNewTitle] = useState(title || '')
   const [newText, setNewText] = useState(text || '')
   const [newImage, setNewImage] = useState(image || '')
 
@@ -18,6 +17,8 @@ const EditPost = ({editModeOff, postId, text, title, image}) => {
   const {register, handleSubmit, reset} = useForm();
 
   const uploadRef = React.createRef();
+  const editPostRef = React.createRef();
+
 
   useEffect(() => {
     if (!!imageUrlRedux) {
@@ -50,54 +51,56 @@ const EditPost = ({editModeOff, postId, text, title, image}) => {
     }
   }
 
-  return (
-    <div className={s.editPost}>
-      <p className={s.editPost__title}>Редактирование поста</p>
-      <form onSubmit={handleSubmit(onSubmit)} className={s.newPostForm}>
-        <div>
-          <p className={s.inputTitle}>Заголовок поста</p>
-          <input {...register('title', {
-            required: true,
-            minLength: 3,
-            maxLength: 100
-          })}  placeholder='Введите заголовок поста'
-               className={`${s.newPost} ${s.newPostTitle}`}
-               onChange={(e) => setNewTitle(e.target.value)}
-               value={newTitle}
-          />
-        </div>
-        <div>
-          <p className={s.inputTitle}>Пост</p>
-          <textarea {...register('text', {
-            required: true,
-            minLength: 3,
-            maxLength: 5000
-          })} placeholder='Напишите сообщение'
-              className={s.newPost}
-              value={newText}
-              onChange={(e) => setNewText(e.target.value)}
-          />
+  const cancelEdit = (e) => {
+    if (editPostRef.current && !editPostRef.current.contains(e.target)) {
+      console.log(editPostRef.current)
+      console.log(editPostRef.current.contains(e.target))
+      editModeOff()
+    } else {
+      editModeOff()
+    }
+  }
 
-        </div>
-        <div className={s.postButtons}>
-          <button onClick={(e) => {
-            e.preventDefault()
-            uploadRef.current.click()
-          } } className={s.sendPost}>Изменить изображение</button>
-          <img src={newImage ? newImage : image}
-               alt="oldImage"
-               className={s.oldImage}/>
-          <input
-            type='file'
-            accept="image/png, image/gif, image/jpeg"
-            onChange={onChange}
-            className={s.uploadInput}
-            ref={uploadRef}
-          ></input>
+  return  (
+     <div>
+      <div className={s.editPost} onBlur={cancelEdit} ref={editPostRef} autoFocus={true}>
+        <span className={s.cancelButton} onClick={cancelEdit}>Отменить редактирование</span>
+        <p className={s.editPost__title}>Редактирование поста</p>
+        <form onSubmit={handleSubmit(onSubmit)} className={s.newPostForm}>
+          <div>
+            <p className={s.inputTitle}>Пост</p>
+            <textarea {...register('text', {
+              required: true,
+              minLength: 3,
+              maxLength: 5000
+            })} placeholder='Напишите сообщение'
+                className={s.newPost}
+                value={newText}
+                onChange={(e) => setNewText(e.target.value)}
 
-          <button type='submit' className={s.sendPost}>Отправить</button>
-        </div>
-      </form>
+            />
+
+          </div>
+          <div className={s.postButtons}>
+            <button onClick={(e) => {
+              e.preventDefault()
+              uploadRef.current.click()
+            } } className={s.sendPost}>Изменить изображение</button>
+            <img src={newImage ? newImage : image}
+                 alt="oldImage"
+                 className={s.oldImage}/>
+            <input
+              type='file'
+              accept="image/png, image/gif, image/jpeg"
+              onChange={onChange}
+              className={s.uploadInput}
+              ref={uploadRef}
+            ></input>
+
+            <button type='submit' className={s.sendPost}>Отправить</button>
+          </div>
+        </form>
+      </div>
     </div>
 
   );

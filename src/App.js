@@ -6,33 +6,34 @@ import Preloader from "./UI/Preloader/Preloader";
 import {checkAuth} from "./redux/auth-reducer";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Login from "./components/Login/Login";
 import Sidebar from "./components/Sidebar/Sidebar";
 import {getInitialized} from "./redux/selectors/app-selectors";
 import {getAuthUserId} from "./redux/selectors/login-selectors";
 import {initializeApp} from "./redux/app-reducer";
+import {fireDB} from "./API/fire.js";
 
 const Profile = lazy(() => import('./components/Profile/Profile'));
-const Login = lazy(() => import('./components/Login/Login'));
 const Users = lazy(() => import('./components/Users/Users'));
 const Dialogs = lazy(() => import('./components/Dialogs/Dialogs'));
 const Feed = lazy(() => import('./components/Feed/Feed'));
 
 export const App = (props) => {
   const initialized = useSelector(getInitialized)
-
   const authUserId = useSelector(getAuthUserId)
 
   const dispatch = useDispatch()
 
   useLayoutEffect(() => {
+    fireDB.firestore()
     if (localStorage.getItem('token')) {
       dispatch(checkAuth())
     }
-  }, [])
+  }, [dispatch])
 
   useEffect(() => {
     dispatch(initializeApp())
-  }, [authUserId])
+  }, [authUserId, dispatch])
 
   if (!initialized) {
     return <Preloader/>
@@ -45,9 +46,11 @@ export const App = (props) => {
       <div className="content">
         <Suspense fallback={<div><Preloader/></div>}>
           <Routes>
-            <Route path="/dialogs/*" element={ <Dialogs/>}/>
+            <Route path="/dialogs/:userId" element={ <Dialogs/>}/>
+            <Route path="/dialogs/" element={ <Dialogs/>}/>
             <Route path="/profile/:userId" element={<Profile/>}/>
             <Route path="/feed/" element={<Feed/>}/>
+            <Route path="/" element={<Login/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/users" element={<Users/>}/>
           </Routes>

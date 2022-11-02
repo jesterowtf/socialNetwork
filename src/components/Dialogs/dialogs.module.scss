@@ -1,9 +1,6 @@
-
 .dialogs {
     background-color: var(--mainColor);
     border-right: 2px solid var(--mainColor);
-    padding: 10px 0;
-    height: 98%;
     border-radius: 20px;
 }
 
@@ -16,27 +13,35 @@
 }
 
 .dialogsBox {
-    height: 100%;
     display: flex;
     border-top: 1px solid var(--inputFormBacColor);
+    background-color: var(--anotherColor);
 }
 
 .dialogsList {
-    flex: 30% 0 0;
     border-right: 1px solid var(--inputFormBacColor);
+    background-color: var(--usersBack);
 }
 
-.dialogsItems {
-    flex: 70% 0 0;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--anotherColor);
+.messagesData {
+    height: 50vh;
+    overflow-y: auto;
+}
+
+.chat {
+    background-color: var(--secondColor);
+    margin-right: 5px;
+    width: 100%;
+}
+
+.noMessages {
+    display: block;
+    margin: auto;
 }
 
 .messages {
     display: flex;
     flex-direction: column;
-    padding-left: 20px;
+    padding: 20px;
 }
 

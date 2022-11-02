@@ -16,13 +16,22 @@ const Friends = ({followedUsers}) => {
     if (isAuth) {
       dispatch(getFriends());
     }
-  }, [followedUsers])
+  }, [dispatch, followedUsers, isAuth])
 
   return (
     <div className={s.friends}>
         <h3 className={s.friendTitle}>Друзья:</h3>
         <div className={s.friendsItems}>
-          {friendsData.map((friend) => <Friend key={friend._id} firstName={friend.firstName} secondName={friend.secondName} avatar={friend.avatar} id={friend._id}/>)}
+
+          {!friendsData[0] ?
+            <span className={s.nofriends}>в друзьях никого нет..</span> :
+            friendsData.map((friend) => {
+            return  <Friend key={friend._id}
+                            firstName={friend.firstName}
+                            secondName={friend.secondName}
+                            avatar={friend.avatar}
+                            id={friend._id}/>
+          })}
         </div>
       </div>
   );

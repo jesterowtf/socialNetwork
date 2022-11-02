@@ -10,9 +10,16 @@ import {
 } from "../../../redux/profile-reducer";
 import EditProfile from "./EditProfile";
 import changePhotoImg from "../../../assets/images/change.png"
-import {uploadToCloud} from "../../../API/api";
+import followImage from "./../../../assets/images/follow.png";
+import unfollowImage from "./../../../assets/images/unfollow.png";
+import sendMessageImage from "../../../assets/images/sendMessage.png"
+import editprofile from "../../../assets/images/editprofile.png"
 
-const UserInfo = ({userId, access}) => {
+import {uploadToCloud} from "../../../API/api";
+import {NavLink} from "react-router-dom";
+import {follow, unfollow} from "../../../redux/users-reducer";
+
+const UserInfo = ({userId, access, userFollowed, authUserId}) => {
 
   const profile = useSelector(getProfile)
   const temporaryAvatarUrl = useSelector(getTemporaryAvatarUrl)
@@ -20,11 +27,19 @@ const UserInfo = ({userId, access}) => {
 
   const [editMode, setEditMode] = useState(false)
   const [visibleButton, setVisibleButton] = useState(true)
+
+  const [getFollow, setFollow] = useState(userFollowed);
+
   const uploadPhoto = React.createRef();
 
-  useEffect(() => {
-    dispatch(getUserProfile(userId))
-  }, [userId, editMode])
+  useLayoutEffect(() => {
+    if (!!userFollowed) {
+      setFollow(true)
+    } else {
+      setFollow(false)
+    }
+
+  }, [userFollowed])
 
   useLayoutEffect(() => {
     if (temporaryAvatarUrl) {
@@ -34,7 +49,11 @@ const UserInfo = ({userId, access}) => {
       }))
     }
 
-  }, [temporaryAvatarUrl])
+  }, [dispatch, temporaryAvatarUrl, userId])
+
+  useEffect(() => {
+    dispatch(getUserProfile(userId))
+  }, [userId, editMode, dispatch])
 
   const editModeOn = (e) => {
     setEditMode(true)
@@ -45,6 +64,16 @@ const UserInfo = ({userId, access}) => {
     setEditMode(false)
     setVisibleButton(true)
   }
+
+  const onFollow = async () => {
+    await dispatch(follow(authUserId, userId));
+    setFollow(true)
+  };
+
+  const onUnfollow = async () => {
+    await dispatch(unfollow(authUserId, userId));
+    setFollow(false)
+  };
 
   const onPhotoChosen = async (e) => {
     try {
@@ -64,17 +93,50 @@ const UserInfo = ({userId, access}) => {
             <button
               className={s.refreshInfo__button}
               onClick={editModeOn}>
-               Обновить информацию
+              <img src={editprofile} alt="edit profile" className={s.editprofile__button}/>
+               Обновить профиль
             </button> }
 
           <div className={s.ava__wrapper}>
+            {!access && <div className={s.userOptions}>
+              <NavLink className={s.sendMessage} to={`/dialogs/${userId}`} >
+                <button className={s.follow}>
+                  <img
+                    src={sendMessageImage}
+                    alt={`Написать ${profile?.firstName} ${profile?.secondName}`}
+                    className={s.profileButtons}
+                  />
+                  Написать
+                </button>
+              </NavLink>
+              {getFollow ? (
+                <button onClick={onUnfollow} className={s.unfollow}>
+                  <img
+                    src={unfollowImage}
+                    alt={`Удалить ${profile?.firstName} ${profile?.secondName}`}
+                    className={s.profileButtons}
+                  />
+                  Отписаться
+                </button>
+              ) : (
+                <button onClick={onFollow} className={s.follow}>
+                  <img
+                    src={followImage}
+                    alt={`Добавить ${profile?.firstName} ${profile?.secondName}`}
+                    className={s.profileButtons}
+                  />
+                  Подписаться
+                </button>
+              )}
+            </div>
+            }
             <img
               src={profile.avatar ||
                 "https://placepic.ru/wp-content/uploads/2021/02/image_562610131056464036330.jpg"}
               alt="avatar"
               className={s.ava__img}
             />
-            <div className={s.changePhotoDiv}>
+            {access && <div className={s.changePhotoDiv}>
               <button className={s.changePhotoImg__button} onClick={(e) => {
                 e.preventDefault()
                 uploadPhoto.current.click()
@@ -86,7 +148,7 @@ const UserInfo = ({userId, access}) => {
                      className={s.uploadInput}
                      onChange={onPhotoChosen}
                      ref={uploadPhoto}/>
-            </div>
+            </div> }
           </div>
           {!editMode &&
           <div className={s.user__about}>

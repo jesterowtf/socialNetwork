@@ -33,6 +33,7 @@ html[data-theme="dark"] {
 
   --usersBorderColor: #8e8e8e;
   --likesBackg: rgb(35, 33, 33);
+  --likesBorder: rgb(50, 50, 50);
   --postBackColor: rgb(35, 33, 33);
   --postTextColor: #fff;
 
@@ -76,6 +77,8 @@ html[data-theme="dark"] {
   --LthemeButtonHoverBG: rgb(56, 54, 54);
   --LthemeButtonHoverText: rgb(185, 185, 185);
 
+  --loginFormBack: linear-gradient(to bottom, #313438 0%, #252931 51%, #313438 100%);
+
   --bgImage: url('https://images.wallpaperscraft.ru/image/single/doski_dereviannyj_poverhnost_185510_1920x1080.jpg');
   --bgImage2: url('https://images.wallpaperscraft.ru/image/single/stena_kirpichi_tekstura_ten_chb_44987_1920x1080.jpg');
   --bgImage3: url('https://images.wallpaperscraft.ru/image/single/set_polosy_linii_tekstura_poverhnost_temnyy_50346_1920x1080.jpg');
@@ -85,19 +88,20 @@ html[data-theme="dark"] {
 
 
 html[data-theme="light"] {
-  --mainColor: rgb(153 3 255);
-  --secondColor: rgb(245, 243, 243);
-  --anotherColor: rgb(203 203 203 / 50%);
+  --mainColor: rgb(255, 163, 65);
+  /*--mainColor: rgb(153 3 255);*/
+  --secondColor: rgb(248, 248, 248);
+  --anotherColor: rgb(242, 242, 242);
   --anotherLink: rgb(179, 119, 240);
 
-  --titleColor: #dedede;
+  --titleColor: #f1eded;
   --link: #919191;
   --mainText: #1c1c1c;
   --secondText: #2f2d2d;
   --thirdText: #1f1d1d;
   --statusText: #000000;
   --headerLogoText: #fff;
-  --headerLoginText: #fff;
+  --headerLoginText: #242424;
 
   --profileBack: #fff;
   --usersBack: #fff;
@@ -111,14 +115,17 @@ html[data-theme="light"] {
 
   --usersBorderColor: #8e8e8e;
   --likesBackg: rgb(35, 33, 33);
+  --likesBorder: rgb(217, 217, 217);
   --postBackColor: rgb(240, 234, 234);
   --postTextColor: #000000;
 
-  --sidebarLinkActive:  linear-gradient(to right, #6a3093 0%, #a044ff  51%, #6a3093  100%);
-  --sidebarLinkTextActive:  #fff;
-  --sidebarLinkHover:  linear-gradient(to right, #6a3093 0%, #a044ff  51%, #6a3093  100%);
+  --sidebarLinkActive:  linear-gradient(to right, #f0ad49 0%, #f5b12b 51%, #f0ad49  100%);
+  /*--sidebarLinkActive:  linear-gradient(to right, #6a3093 0%, #a044ff  51%, #6a3093  100%);*/
+  --sidebarLinkTextActive: #2a2929;
+  --sidebarLinkHover:  linear-gradient(to right, #f0ad49 0%, #f5b12b  51%, #f0ad49  100%);
+  /*--sidebarLinkHover:  linear-gradient(to right, #6a3093 0%, #a044ff  51%, #6a3093  100%);*/
   --sidebarLinkText:  #000;
-  --sidebarLinkTextHover:  #fff;
+  --sidebarLinkTextHover:  #2a2929;
 
   --inputMessageColorText: #fff;
   --inputMessageColorFon: #575758;
@@ -133,7 +140,6 @@ html[data-theme="light"] {
   --usersFollowTextColor: #fff;
   --usersFollowTextColorHover: rgb(196, 196, 196);
   --usersFollowBackgrColor:linear-gradient(to right, #56ab2f 0%, #a8e063  51%, #56ab2f  100%);
-  /*--usersFollowBackgrColor: linear-gradient(to right, #00c6ff 0%, #0072ff  51%, #00c6ff  100%);*/
   --usersFollowBackgrColorHover: rgb(196, 196, 196);
 
   --usersUnfollowTextColor: #fff;
@@ -152,6 +158,8 @@ html[data-theme="light"] {
   --LthemeButtonText: rgb(255, 255, 255);
   --LthemeButtonHoverBG: rgb(164, 98, 235);
   --LthemeButtonHoverText: rgb(255, 255, 255);
+
+  --loginFormBack: linear-gradient(to bottom, #c7c8c9 0%, #f9f9f9 51%, #c7c8c9 100%);
 
   --bgImage: url('https://images.wallpaperscraft.ru/image/single/doski_dereviannyj_poverhnost_185510_1920x1080.jpg');
   --bgImage2: url('https://images.wallpaperscraft.ru/image/single/stena_kirpichi_tekstura_ten_chb_44987_1920x1080.jpg');
