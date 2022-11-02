@@ -7,10 +7,11 @@ import {getIsAuth, getUserName} from "../../redux/selectors/login-selectors";
 import {logout} from "../../redux/auth-reducer";
 import ThemeToggler from "./ThemeToggler/ThemeToggler";
 import { getAuth, signOut } from "firebase/auth";
+import {fireDB} from "../../API/fire.js";
 
 const Header = (props) => {
 
-  const authFirebase = getAuth();
+  const authFirebase = getAuth(fireDB);
 
   const auth = useSelector(getIsAuth)
   const userName = useSelector(getUserName)
