@@ -11,7 +11,6 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import {getInitialized} from "./redux/selectors/app-selectors";
 import {getAuthUserId} from "./redux/selectors/login-selectors";
 import {initializeApp} from "./redux/app-reducer";
-import {fireDB} from "./API/fire.js";
 
 const Profile = lazy(() => import('./components/Profile/Profile'));
 const Users = lazy(() => import('./components/Users/Users'));
@@ -25,7 +24,6 @@ export const App = (props) => {
   const dispatch = useDispatch()
 
   useLayoutEffect(() => {
-    fireDB.firestore()
     if (localStorage.getItem('token')) {
       dispatch(checkAuth())
     }
