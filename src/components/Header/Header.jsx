@@ -11,7 +11,7 @@ import {fireDB} from "../../API/fire.js";
 
 const Header = (props) => {
 
-  const authFirebase = fireDB.auth()
+  const authFirebase = getAuth(fireDB)
 
   const auth = useSelector(getIsAuth)
   const userName = useSelector(getUserName)
