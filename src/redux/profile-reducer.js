@@ -109,7 +109,7 @@ const profileReducer = (state = initialState, action) => {
     case GET_USER_POSTS:
       return {
         ...state,
-        posts: [...action.posts.reverse()]
+        posts: [...action.posts?.reverse()]
       }
 
     case EDIT_POST:

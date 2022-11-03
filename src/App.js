@@ -22,9 +22,11 @@ export const App = (props) => {
   const authUserId = useSelector(getAuthUserId)
 
   const dispatch = useDispatch()
+  const token = !!localStorage.getItem('token')
+  console.log(token)
 
   useLayoutEffect(() => {
-    if (localStorage.getItem('token')) {
+    if (!token) {
       dispatch(checkAuth())
     }
   }, [dispatch])
