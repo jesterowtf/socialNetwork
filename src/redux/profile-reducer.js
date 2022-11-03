@@ -155,6 +155,7 @@ export const getUserProfile = (userId) => {
   }
 }
 
+
 export const setUserProfileStatus = (userId, status) => {
   return (dispatch) => {
      profileAPI.setStatus({"_id": userId, "status": status})
