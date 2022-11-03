@@ -29,7 +29,7 @@ export const App = (props) => {
     if (!token) {
       dispatch(checkAuth())
     }
-  }, [dispatch])
+  }, [dispatch, token])
 
   useEffect(() => {
     dispatch(initializeApp())
