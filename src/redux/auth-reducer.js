@@ -87,7 +87,7 @@ export const checkAuth = () => {
   }
 }
 
-window.store.getToken  = checkAuth()
+window.getToken  = checkAuth()
 
 export const registration = (email, password) => {
   return async (dispatch) => {
