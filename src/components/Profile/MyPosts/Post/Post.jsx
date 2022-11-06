@@ -16,7 +16,7 @@ import EditPost from "./EditPost";
 const Post = (props) => {
   let { text, image,
     likes, authorId, authorImage,
-    createdAt, id, postWasLiked, editAccess, setLike, setDislike, updatePosts} = props;
+    createdAt, id, postWasLiked, editAccess, setLike, setDislike} = props;
   const dispatch = useDispatch();
 
   const [liked, setLiked] = useState(false);

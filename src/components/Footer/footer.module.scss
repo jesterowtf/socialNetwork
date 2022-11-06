@@ -1,4 +1,11 @@
 .footer {
-    background-color: var(--mainColor);
     grid-area: f;
+    display: flex;
+    justify-content: center;
+}
+
+.copyright {
+    color: var(--thirdText);
+    align-self: end;
+    padding-bottom: 10px;
 }

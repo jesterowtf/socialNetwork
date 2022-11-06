@@ -1,9 +1,10 @@
 .posts__Item {
-    background-color: var(--anotherColor);
+    background-color: var(--secondColor);
     border-radius: 10px;
     padding: 15px 15px 40px;
     position: relative;
     margin-bottom: 20px;
+    border: 1px solid #ffffff17;
 }
 
 .post__box {
@@ -21,9 +22,9 @@
 }
 
 .post__text {
-    flex: 0 0 90%;
     display: flex;
     flex-direction: column;
+    padding: 14px;
 }
 
 .post__avaImg {
@@ -39,7 +40,7 @@
     bottom: -5px;
     display: flex;
     align-items: center;
-    border: 1px solid var(--secondColor);
+    border: 1px solid var(--mainColor);
     border-radius: 30px;
     padding: 5px 15px 5px 15px;
     color: var(--secondText);
@@ -93,7 +94,6 @@
 }
 
 .postImage {
-    border-radius: 20px;
     max-width: 800px;
     max-height: 400px;
     object-fit: cover;
@@ -102,7 +102,6 @@
 
 .postText {
     border-radius: 20px;
-    background-color: var(--inputFormBacColor);
     padding: 15px;
     line-height: 20px;
     max-width: 800px;

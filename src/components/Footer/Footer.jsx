@@ -4,7 +4,9 @@ import s from "./footer.module.scss";
 const Footer = () => {
     return (
         <div className={s.footer}>
-            Footer
+            <div className={s.copyright}>
+              © Социальная сеть 2022
+            </div>
         </div>
     )
 }

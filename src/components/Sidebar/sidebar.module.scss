@@ -1,7 +1,6 @@
 .sidebar {
     background-color: var(--secondColor);
-    border-right: 8px solid var(--mainColor);
-    border-left: 8px solid var(--mainColor);
+    margin: 0 8px;
     grid-area: s;
     border-radius: 20px;
     overflow: hidden;
@@ -55,7 +54,7 @@
     width: 330%;
     height: 140%;
     opacity: 0;
-    background-image: var(--sidebarLinkHover);
+    background: var(--sidebarLinkHover);
     border-radius: 15px;
     background-position: right center;
     z-index: -1;
@@ -79,7 +78,7 @@
     transform: translate(-50%, -50%);
     width: 330%;
     height: 140%;
-    background-image: var(--sidebarLinkActive);
+    background: var(--sidebarLinkActive);
     border-radius: 15px;
     z-index: -1;
     transition: 0.2s;

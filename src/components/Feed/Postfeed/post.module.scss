@@ -4,6 +4,7 @@
     padding: 15px 15px 45px;
     position: relative;
     margin-bottom: 20px;
+    border: 1px solid #ffffff17;
 }
 
 .post__box {
@@ -40,7 +41,7 @@
     bottom: -5px;
     display: flex;
     align-items: center;
-    border: 1px solid var(--likesBorder);
+    border: 1px solid var(--mainColor);
     border-radius: 30px;
     padding: 5px 15px 5px 15px;
     color: var(--secondText);

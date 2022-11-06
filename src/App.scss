@@ -2,13 +2,7 @@ body {
   margin: 0 auto;
   padding: 20px;
   max-width: 1200px;
-  /* background-image: url('https://catherineasquithgallery.com/uploads/posts/2021-02/1613273811_21-p-sinii-fon-s-blikami-26.jpg'); */
-  /* background-image: url('https://images3.alphacoders.com/167/thumb-1920-167859.jpg'); */
-  /* background-image: url('https://catherineasquithgallery.com/uploads/posts/2021-02/1612451650_8-p-serie-soti-fon-13.jpg'); */
-  /* background-image: url('https://phonoteka.org/uploads/posts/2021-04/1619387744_12-phonoteka_org-p-fon-dlya-interfeisa-18.jpg'); */
-  /* background-image: url('https://baazarproductions.com/wp-content/uploads/2018/02/menubackground6.jpg'); */
-  /*background-image: url('https://images.wallpaperscraft.ru/image/single/kvadraty_formy_svet_85528_1920x1080.jpg');*/
-  background-image: var(--bgImage4);
+  background-image: var(--bgImage2);
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Comfortaa', cursive;
@@ -34,5 +28,22 @@ body {
   grid-area: c;
   border-radius: 20px;
   min-height: 700px;
+  margin-right: 8px;
+}
 
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: -webkit-gradient(linear, left top, right top, from(var(--scrollbarTrack1)), color-stop(var(--scrollbarTrack2)), to(var(--scrollbarTrack3)));
+  background: linear-gradient(to right, var(--scrollbarTrack1), var(--scrollbarTrack2), var(--scrollbarTrack3));
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 150px;
+  border-radius: 1px;
+  background: linear-gradient(to right, var(--scrollbarThumb1), var(--scrollbarThumb2), var(--scrollbarThumb3));
+  -webkit-box-shadow: inset 0 0 3px var(--scrollbarThumbShadow);
+  box-shadow: inset 0 0 3px var(--scrollbarThumbShadow);
 }

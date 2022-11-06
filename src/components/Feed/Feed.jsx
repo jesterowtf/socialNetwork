@@ -26,6 +26,10 @@ const Feed = (props) => {
     }
   }, [dispatch, friendsPostsMode])
 
+  useEffect(() => {
+    document.title = `Новости | Социальная сеть`
+  }, [])
+
   const changeGetPostsMode = () => {
     setFriendsPostsMode(prevState => !prevState)
   }

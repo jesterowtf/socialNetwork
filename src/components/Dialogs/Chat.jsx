@@ -19,6 +19,8 @@ const Chat = (props) => {
 
   }, [targetUser])
 
+
+
   const firestore = fireDB.firestore()
 
   const [messages, loadingMessages] = useCollectionData(

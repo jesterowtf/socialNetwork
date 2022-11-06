@@ -1,24 +1,29 @@
 .dialogsList__item {
     padding: 0 10px 0 0;
-    margin-bottom: 3px;
     color: var(--mainText);
     cursor: pointer;
-    border-bottom: 1px dashed var(--secondColor);
+    border-bottom: 1px solid var(--secondColor);
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 36px;
     width: 250px;
+    transition: 0.2s linear;
 }
 
 .itemAva {
-    width: 50px;
-    height: 50px;
+    width: 38px;
+    height: 38px;
     object-fit: cover;
     margin-right: 10px;
 }
 
 .dialogsList__item:hover {
-    background-color: var(--secondColor);
+    background: var(--sidebarLinkHover);
+    border-bottom: 1px dashed transparent;
+}
+
+.dialogsList__item:hover span{
+    color: #fff;
 }
 
 .navlink {
@@ -26,7 +31,11 @@
 }
 
 .active {
-    background-color: var(--secondColor);
+    background: var(--sidebarLinkHover);
+}
+
+.active span{
+    color: #fff;
 }
 
 .noDialogs {

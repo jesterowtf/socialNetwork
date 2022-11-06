@@ -19,10 +19,11 @@ const Users = (props) => {
 
   useLayoutEffect(() => {
     dispatch(getUsers())
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
-  }, [followedUsers])
+    document.title = `Поиск людей | Социальная сеть`
+  }, [])
 
   return (
     <>

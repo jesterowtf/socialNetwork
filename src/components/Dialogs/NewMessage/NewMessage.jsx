@@ -28,6 +28,10 @@ const NewMessage = (props) => {
 
   }, [spanRef, dispatch, targetUser])
 
+  useEffect(() => {
+    document.title = `Чат с ${targetUserData?.firstName} ${targetUserData?.secondName} | Социальная сеть`
+  }, [targetUserData?.firstName, targetUserData?.secondName])
+
 
   const {register, handleSubmit, reset} = useForm();
 

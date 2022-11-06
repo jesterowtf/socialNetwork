@@ -20,7 +20,6 @@ import {NavLink} from "react-router-dom";
 import {follow, unfollow} from "../../../redux/users-reducer";
 
 const UserInfo = ({userId, access, userFollowed, authUserId}) => {
-
   const profile = useSelector(getProfile)
   const temporaryAvatarUrl = useSelector(getTemporaryAvatarUrl)
   const dispatch = useDispatch()
@@ -54,6 +53,10 @@ const UserInfo = ({userId, access, userFollowed, authUserId}) => {
   useEffect(() => {
     dispatch(getUserProfile(userId))
   }, [userId, editMode, dispatch])
+
+  useEffect(() => {
+    document.title = `${profile?.firstName} ${profile?.secondName} | Социальная сеть`
+  }, [profile?.firstName, profile?.secondName])
 
   const editModeOn = (e) => {
     setEditMode(true)

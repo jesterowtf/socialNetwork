@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import s from "./dialogs.module.scss";
 import {useSelector} from "react-redux";
 import "firebase/compat/auth";
@@ -12,6 +12,10 @@ const Dialogs = (props) => {
   const userData = useSelector(getAuthUserProfile)
   const params = useParams()
   const targetUser = params.userId
+
+  useEffect(() => {
+    document.title = `Сообщения | Социальная сеть`
+  }, [])
 
   return (
     <div className={s.dialogs}>

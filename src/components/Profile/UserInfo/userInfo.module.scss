@@ -14,8 +14,7 @@
     position: absolute;
     left: 50%;
     bottom: -40px;
-    transform: translateX(-40%);
-    width: 100%;
+    transform: translateX(-50%);
 }
 
 .sendMessage {
@@ -60,6 +59,7 @@
 }
 
 .user__info {
+
     display: flex;
     align-items: center;
     padding: 25px;
@@ -88,7 +88,7 @@
 .user__about div {
     padding: 5px;
     margin-bottom: 5px;
-    color: var(--mainText);
+
 }
 
 .profileInfo {
@@ -100,7 +100,8 @@
     display: inline-block;
     font-size: 14px;
     flex: 0 120px;
-    color: var(--thirdText);
+    color: var(--statusText);
+
 }
 
 .spanInfoRight {
@@ -108,13 +109,22 @@
     font-size: 14px;
     flex: 250px;
     line-height: 16px;
+    color: var(--statusText);
+
 }
 
 .spanInfoRight a{
-    color: var(--link);
+    color: var(--statusText);
+
     font-size: 16px;
     line-height: 24px;
+    transition: 0.2s linear;
 }
+
+.spanInfoRight a:hover{
+    color: var(--thirdText);
+}
+
 
 .infoBlock {
     display: flex;
@@ -126,6 +136,7 @@
     margin-top: 20px;
     font-size: 24px;
     width: 100%;
+    color: var(--headerLogoText);
 }
 
 .name span {
@@ -141,7 +152,7 @@
 .contactsItem a {
     margin: 1px;
     padding: 0;
-    color: var(--secondText);
+    color: var(--statusText);
 }
 
 .contactsItems {
@@ -217,7 +228,7 @@
     border: none;
     outline: none;
     background-color: transparent;
-    color: var(--inputFormButtonTextColor);
+    color: var(--statusText);
     transition: 0.3s linear;
 
     &:hover {
@@ -271,7 +282,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 130px;
     height: 30px;
     background-image: var(--usersFollowBackgrColor);
     font-size: 16px;
