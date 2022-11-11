@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {NavLink} from "react-router-dom";
 import Friends from "./Friends/Friends";
 import s from "./sidebar.module.scss";

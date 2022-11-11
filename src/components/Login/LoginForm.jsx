@@ -8,7 +8,7 @@ import {login, registration} from "../../redux/auth-reducer";
 import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 
 
-const LoginForm = (props) => {
+const LoginForm = () => {
   const isAuth = useSelector(getIsAuth)
   const authUserId = useSelector(getAuthUserId)
 
@@ -77,40 +77,43 @@ const LoginForm = (props) => {
 
   useEffect(() => {
     if (isAuth) {
-      // navigate(-1)
       navigate(`/profile/${authUserId}`)
     }
   }, [authUserId, isAuth, navigate])
 
-  return (<div className={s.loginElements}>
-    <form className={s.loginForm}>
+  return (
+    <div>
+      <span className={s.test}>Для теста : test@test.ru tttest</span>
+      <div className={s.loginElements}>
+        <form className={s.loginForm}>
 
-      <div className={s.loginFormDiv}>
-        <span className={s.inputsName}>Email</span>
-        <input {...register('email', {
-          required: true,
-          pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        })} type="text" placeholder='Введите email' className={s.inputs}/>
-        {errors.email && <span
-          className={s.errors}>{(errors.email?.type === 'required' && "Введите email") || (errors.email?.type === 'pattern' && "Некорректный email")}</span>}
+          <div className={s.loginFormDiv}>
+            <span className={s.inputsName}>Email</span>
+            <input {...register('email', {
+              required: true,
+              pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            })} type="text" placeholder='Введите email' className={s.inputs}/>
+            {errors.email && <span
+              className={s.errors}>{(errors.email?.type === 'required' && "Введите email") || (errors.email?.type === 'pattern' && "Некорректный email")}</span>}
+          </div>
+
+          <div className={s.loginFormDiv}>
+            <span className={s.inputsName}>Пароль</span>
+            <input {...register('password', {required: true, minLength: 6, maxLength: 15})} type="text"
+                   placeholder='Введите пароль'
+                   className={s.inputs}/>
+            {errors.password?.type === 'required' &&
+              <span className={s.errors}>{errors.password?.type === 'required' && "Введите пароль"}</span>}
+            {errors.password?.type === 'minLength' &&
+              <span className={s.errors}>{errors.password?.type === 'minLength' && "Минимальный пароль 6 символов"}</span>}
+            {apiErrors && <span className={s.errors}>{apiErrors}</span> }
+          </div>
+
+        </form>
+        <button onClick={goLogin} className={s.enterButton}>Войти </button>
+        <button onClick={goRegistration} className={s.enterButton}>Регистрация</button>
       </div>
-
-      <div className={s.loginFormDiv}>
-        <span className={s.inputsName}>Пароль</span>
-        <input {...register('password', {required: true, minLength: 6, maxLength: 15})} type="text"
-               placeholder='Введите пароль'
-               className={s.inputs}/>
-        {errors.password?.type === 'required' &&
-          <span className={s.errors}>{errors.password?.type === 'required' && "Введите пароль"}</span>}
-        {errors.password?.type === 'minLength' &&
-          <span className={s.errors}>{errors.password?.type === 'minLength' && "Минимальный пароль 6 символов"}</span>}
-        {apiErrors && <span className={s.errors}>{apiErrors}</span> }
-      </div>
-
-    </form>
-    <button onClick={goLogin} className={s.enterButton}>Войти </button>
-    <button onClick={goRegistration} className={s.enterButton}>Регистрация</button>
-  </div>);
+    </div>)
 };
 
 export default LoginForm;
