@@ -23,7 +23,6 @@ export const App = (props) => {
 
   const dispatch = useDispatch()
   const token = !!localStorage.getItem('token')
-  console.log(token)
 
   useLayoutEffect(() => {
     if (!token) {

@@ -72,7 +72,7 @@ const NewPost = (props) => {
                alt="oldImage"
                className={s.oldImage}/>
 
-          <button type='submit' className={s.sendPost}>Отправить</button>
+          <button type='submit' className={s.sendPost}>Опубликовать</button>
         </div>
       </form>
     </div>

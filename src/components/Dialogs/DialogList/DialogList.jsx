@@ -23,8 +23,6 @@ const DialogList = (props) => {
     return <Preloader/>
   }
 
-  console.log(dialogs)
-
   return (
 
     <div className={s.dialogsItems}>

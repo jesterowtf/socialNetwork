@@ -15,7 +15,6 @@ const LoginForm = (props) => {
   const auth = getAuth()
 
   const loginFirebase = async (email, password) => {
-    console.log(email, password)
     await signInWithEmailAndPassword(auth,email, password)
       .then(response => console.log(response))
       .catch(function (error) {

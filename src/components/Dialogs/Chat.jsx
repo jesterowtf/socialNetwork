@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import { fireDB } from "../../API/fire";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import Preloader from "../../UI/Preloader/Preloader";
@@ -12,14 +12,7 @@ const Chat = (props) => {
 
   const params = useParams()
   const targetUser = params.userId
-
   const spanRef = useRef()
-
-  useEffect(() => {
-
-  }, [targetUser])
-
-
 
   const firestore = fireDB.firestore()
 
@@ -41,8 +34,6 @@ const Chat = (props) => {
   const messagesData = messages.map(message => {
     return <Message authorMessageId={message.uid} message={message} authUserID={userData?._id} key={message.createdAt?.seconds}/>
   })
-
-  console.log(messages)
 
   return (
     <div className={s.chat}>

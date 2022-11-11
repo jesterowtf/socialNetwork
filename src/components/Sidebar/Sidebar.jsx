@@ -14,10 +14,6 @@ const Sidebar = (props) => {
   const authUserId = useSelector(getAuthUserId)
   const followedUsers = useSelector(getFollowedUsers)
 
-  useEffect(() => {
-    console.log(!!authUserId)
-  }, [authUserId])
-
   const checkActive = () => {
     const status = ({isActive}) =>
       isActive ? `${s.nav__linkActive}` : `${s.nav__link}`;

@@ -71,7 +71,6 @@ const getAuthUserProfile = (userId) => {
 export const checkAuth = () => {
   return async (dispatch) => {
     const res = await authAPI.getAuth()
-    console.log(`checkAuth()`, res)
     if (res.code === "ERR_BAD_REQUEST") {
       console.log(res.response.data.errors)
       dispatch(addErrors(res.response.data.errors))
